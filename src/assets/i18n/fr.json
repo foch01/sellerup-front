@@ -1,0 +1,15 @@
+{
+    "login": {
+        "title": "Connexion à SellerUp",
+        "email": {
+            "label": "Email",
+            "errorPattern": "Veuillez saisir un email valide",
+            "errorRequired": "Veuillez saisir un email"
+        },
+        "password": {
+            "label": "Mot de passe",
+            "errorRequired": "Veuillez saisir un mot de passe"
+        },
+        "submit": "Se connecter"
+    }
+}

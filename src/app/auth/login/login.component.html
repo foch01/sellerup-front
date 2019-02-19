@@ -1,0 +1,38 @@
+<div class="login-container">
+
+    <mat-card>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <mat-card-title class="row">
+                {{ 'login.title' | translate }}
+            </mat-card-title>
+
+            <mat-card-content fxLayout="column">
+                <!-- Email -->
+                <mat-form-field class="row email-field">
+                    <input matInput placeholder="{{ 'login.email.label' | translate }}" formControlName="email" type="email">
+
+                    <mat-error *ngIf="email?.invalid && !email.hasError('required')">
+                        {{ 'login.email.errorPattern' | translate }}
+                    </mat-error>
+                    <mat-error *ngIf="email?.hasError('required')">
+                        {{ 'login.email.errorRequired' | translate }}
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- Password -->
+                <mat-form-field class="row password-field">
+                    <input matInput placeholder="{{ 'login.password.label' | translate }}" formControlName="password" type="password">
+
+                    <mat-error *ngIf="password.hasError('required')">
+                        {{ 'login.password.errorRequired' | translate }}
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button type="submit" color="primary">
+                    {{ 'login.submit' | translate | uppercase }}
+                </button>
+            </mat-card-content>
+        </form>
+    </mat-card>
+
+</div>
