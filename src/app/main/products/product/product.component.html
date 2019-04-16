@@ -1,0 +1,126 @@
+<div id="product" class="page-layout carded fullwidth inner-scroll">
+
+    <!-- TOP BACKGROUND -->
+    <div class="top-bg accent"></div>
+    <!-- / TOP BACKGROUND -->
+
+    <!-- CENTER -->
+    <div class="center">
+
+        <!-- HEADER -->
+        <div class="header accent" fxLayout="row" fxLayoutAlign="space-between center">
+
+            <!-- APP TITLE -->
+            <div fxLayout="row" fxLayoutAlign="start center">
+
+                <button mat-icon-button class="mr-0 mr-sm-16" [routerLink]="'/products'">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+
+                <div class="product-image mr-8 mr-sm-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                    <img *ngIf="product.images[0]" [src]="product.images[0].url">
+                    <img *ngIf="!product.images[0]" [src]="'assets/images/ecommerce/product-image-placeholder.png'">
+                </div>
+
+                <div fxLayout="column" fxLayoutAlign="start start"
+                     [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
+                    <div class="h2" *ngIf="pageType ==='view'">
+                        {{product.name}}
+                    </div>
+                    <div class="subtitle secondary-text">
+                        <span>Détails du produit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CONTENT CARD -->
+        <div class="content-card">
+
+            <!-- CONTENT -->
+            <div class="content">
+
+                <form name="productForm" [formGroup]="productForm" class="product w-100-p" fxLayout="column" fxFlex>
+
+                    <mat-tab-group>
+
+                        <mat-tab label="Basic Info">
+
+                            <div class="tab-content p-24" fusePerfectScrollbar>
+
+                                <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                    <mat-label>ASIN</mat-label>
+                                    <input matInput placeholder="Asin"
+                                           name="name"
+                                           formControlName="asin"
+                                           value={{product.ASIN}}
+                                           required>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                    <mat-label>SKU</mat-label>
+                                    <input matInput placeholder="Sku"
+                                           name="name"
+                                           formControlName="sku"
+                                           value={{product.sku}}
+                                           required>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                    <mat-label>Prix</mat-label>
+                                    <input matInput placeholder="Prix"
+                                           name="name"
+                                           formControlName="price"
+                                           value={{product.price}}
+                                           required>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                    <mat-label>Stock</mat-label>
+                                    <input matInput placeholder="Stock"
+                                           name="name"
+                                           formControlName="stock"
+                                           value={{product.stock}}
+                                           required>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                    <mat-label>TVA</mat-label>
+                                    <input matInput placeholder="taxRate"
+                                           name="name"
+                                           formControlName="taxRate"
+                                           value={{product.taxRate}}
+                                           required>
+                                </mat-form-field>
+                            </div>
+                        </mat-tab>
+
+                        <mat-tab label="Statistiques">
+
+                            <div class="tab-content p-24" fusePerfectScrollbar>
+
+                                <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                    <mat-label>Prix</mat-label>
+                                    <input matInput placeholder="Prix"
+                                           name="name"
+                                           formControlName="price"
+                                           value={{product.price}}
+                                           required>
+                                </mat-form-field>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Emails Marketing">
+
+                            <div class="tab-content p-24" fusePerfectScrollbar>
+
+                                <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                    <mat-label>Prix</mat-label>
+                                    <input matInput placeholder="Prix"
+                                           name="name"
+                                           formControlName="price"
+                                           value={{product.price}}
+                                           required>
+                                </mat-form-field>
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

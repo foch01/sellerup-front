@@ -1,15 +1,14 @@
 export const locale = {
-    lang: 'en',
+    lang: 'fr',
     data: {
         NAV: {
             'APPLICATIONS': 'Applications',
             'SAMPLE'        : {
-                'TITLE': 'Sample',
+                'TITLE': 'Exemple',
                 'BADGE': '25'
             },
             'PRODUCTS'        : {
-                'TITLE': 'Products',
-                'BADGE': '25'
+                'TITLE': 'Produits'
             }
         }
     }

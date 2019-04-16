@@ -20,6 +20,14 @@ export const navigation: FuseNavigation[] = [
                     bg       : '#F44336',
                     fg       : '#FFFFFF'
                 }
+            },
+            {
+                id       : 'product',
+                title    : 'Product',
+                translate: 'NAV.PRODUCTS.TITLE',
+                type     : 'item',
+                icon     : 'shopping_cart',
+                url      : '/products',
             }
         ]
     }
