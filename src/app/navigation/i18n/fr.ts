@@ -9,6 +9,12 @@ export const locale = {
             },
             'PRODUCTS'        : {
                 'TITLE': 'Produits'
+            },
+            'LOGIN'        : {
+                'TITLE': 'Connexion'
+            },
+            'FORGOT-PASSWORD'        : {
+                'TITLE': 'Mot de passe oublié'
             }
         }
     }

@@ -28,6 +28,22 @@ export const navigation: FuseNavigation[] = [
                 type     : 'item',
                 icon     : 'shopping_cart',
                 url      : '/products',
+            },
+            {
+                id       : 'login',
+                title    : 'Login',
+                translate: 'NAV.LOGIN.TITLE',
+                type     : 'item',
+                icon     : 'lock',
+                url      : '/login',
+            },
+            {
+                id       : 'forgot-password',
+                title    : 'Forgot Password',
+                translate: 'NAV.FORGOT-PASSWORD.TITLE',
+                type     : 'item',
+                icon     : 'lock',
+                url      : '/forgot-password',
             }
         ]
     }

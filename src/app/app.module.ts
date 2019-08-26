@@ -17,8 +17,9 @@ import { fuseConfig } from 'app/fuse-config';
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 import { SampleModule } from 'app/main/sample/sample.module';
-import { ProductsComponent } from './main/products/products.component';
-import {ProductsModule} from './main/products/products.module';
+import { ProductsModule } from './main/products/products.module';
+import { LoginModule } from './main/authentication/login/login.module';
+import { ForgotPasswordModule } from './main/authentication/forgot-password/forgot-password.module';
 
 const appRoutes: Routes = [
     {
@@ -52,6 +53,10 @@ const appRoutes: Routes = [
         FuseSharedModule,
         FuseSidebarModule,
         FuseThemeOptionsModule,
+
+        // Authentication
+        LoginModule,
+        ForgotPasswordModule,
 
         // App modules
         LayoutModule,

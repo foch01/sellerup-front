@@ -4,7 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { FuseSharedModule } from '@fuse/shared.module';
 
-import {ProductsComponent} from './products.component';
+import { ProductsComponent } from './products.component';
 import {
     MatButtonModule,
     MatChipsModule,
@@ -18,7 +18,7 @@ import {
     MatSortModule,
     MatSnackBarModule,
     MatTableModule,
-    MatTabsModule} from '@angular/material';
+    MatTabsModule } from '@angular/material';
 import { ProductComponent } from './product/product.component';
 
 const routes = [

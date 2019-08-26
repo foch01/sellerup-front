@@ -1,9 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import {FuseTranslationLoaderService} from '../../../@fuse/services/translation-loader.service';
-import {locale as english} from './i18n/en';
-import {locale as french} from './i18n/fr';
-import {fuseAnimations} from '../../../@fuse/animations';
-import {MatPaginator, MatSort} from '@angular/material';
+import { FuseTranslationLoaderService } from '../../../@fuse/services/translation-loader.service';
+import { locale as english } from './i18n/en';
+import { locale as french } from './i18n/fr';
+import { fuseAnimations } from '../../../@fuse/animations';
+import { MatPaginator, MatSort } from '@angular/material';
 
 @Component({
     selector: 'app-products',
