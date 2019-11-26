@@ -20,6 +20,12 @@ export const locale = {
         },
         'MARKETING-EMAIL': {
             'TITLE': 'Email Marketing',
+            'DATABLE': {
+                'TITLE-EMAIL': 'Titre',
+                'NUMBER-PRODUCT': 'Nombre de produits',
+                'DECLENCHEMENT': 'Déclenchement',
+                'ACTIVE': 'Active',
+            }
         }
     }
 };

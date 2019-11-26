@@ -147,25 +147,25 @@
                                     <table mat-table [dataSource]="dataSource" matSort>
                                         <!-- Name Column -->
                                         <ng-container matColumnDef="productName">
-                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Titre </th>
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'MARKETING-EMAIL.DATABLE.TITLE-EMAIL' | translate}} </th>
                                             <td mat-cell *matCellDef="let row"> {{row.name}} </td>
                                         </ng-container>
 
                                         <!-- ID Column -->
                                         <ng-container matColumnDef="numberProduct">
-                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre de produits </th>
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'MARKETING-EMAIL.DATABLE.NUMBER-PRODUCT' | translate}} </th>
                                             <td mat-cell *matCellDef="let row"> {{row.numberProduct}} </td>
                                         </ng-container>
 
                                         <!-- Progress Column -->
                                         <ng-container matColumnDef="declenchement">
-                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Déclenchement </th>
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'MARKETING-EMAIL.DATABLE.DECLENCHEMENT' | translate}} </th>
                                             <td mat-cell *matCellDef="let row"> {{row.declenchement}} </td>
                                         </ng-container>
 
                                         <!-- Color Column -->
                                         <ng-container matColumnDef="active">
-                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Active </th>
+                                            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'MARKETING-EMAIL.DATABLE.ACTIVE' | translate}} </th>
                                             <td mat-cell *matCellDef="let row"> {{row.active}} </td>
                                         </ng-container>
 
