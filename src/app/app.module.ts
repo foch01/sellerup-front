@@ -20,6 +20,8 @@ import { SampleModule } from 'app/main/sample/sample.module';
 import { ProductsModule } from './main/products/products.module';
 import { LoginModule } from './main/authentication/login/login.module';
 import { ForgotPasswordModule } from './main/authentication/forgot-password/forgot-password.module';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { FakeDbService } from './fake-db/fake-db.service';
 
 const appRoutes: Routes = [
     {
@@ -39,6 +41,10 @@ const appRoutes: Routes = [
         RouterModule.forRoot(appRoutes),
 
         TranslateModule.forRoot(),
+        InMemoryWebApiModule.forRoot(FakeDbService, {
+            delay             : 0,
+            passThruUnknownUrl: true
+        }),
 
         // Material moment date module
         MatMomentDateModule,

@@ -18,8 +18,13 @@ import {
     MatSortModule,
     MatSnackBarModule,
     MatTableModule,
-    MatTabsModule } from '@angular/material';
+    MatTabsModule
+} from '@angular/material';
 import { ProductComponent } from './product/product.component';
+import { ProductService } from './product/product.service';
+import { ChartsModule } from 'ng2-charts';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { FuseWidgetModule } from '../../../@fuse/components';
 
 const routes = [
     {
@@ -29,6 +34,9 @@ const routes = [
     {
         path     : 'products/:id/:handle',
         component: ProductComponent,
+        resolve  : {
+            data: ProductService
+        }
     },
 ];
 
@@ -55,6 +63,15 @@ const routes = [
         MatSnackBarModule,
         MatTableModule,
         MatTabsModule,
+
+        ChartsModule,
+        NgxChartsModule,
+
+        FuseSharedModule,
+        FuseWidgetModule,
+    ],
+    providers   : [
+        ProductService
     ],
     exports     : [
         ProductsComponent

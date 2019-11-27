@@ -1,6 +1,11 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {fuseAnimations} from '../../../../@fuse/animations';
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { fuseAnimations } from '../../../../@fuse/animations';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { FuseTranslationLoaderService } from '../../../../@fuse/services/translation-loader.service';
+import { locale as english } from '../i18n/en';
+import { locale as french } from '../i18n/fr';
+import { ProductService } from './product.service';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 
 @Component({
     selector: 'app-product',
@@ -9,13 +14,33 @@ import { FormBuilder, FormGroup } from '@angular/forms';
     encapsulation: ViewEncapsulation.None,
     animations: fuseAnimations
 })
+
 export class ProductComponent implements OnInit {
+
+    displayedColumns: string[] = ['productName', 'numberProduct', 'declenchement', 'active'];
+    dataSource: MatTableDataSource<any[]>;
+
+    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatSort) sort: MatSort;
     product: any;
     pageType: string;
     productForm: FormGroup;
+    widgets: any;
+    emails: any;
+    widget1SelectedYear = '2016';
+
     constructor(
-        private _formBuilder: FormBuilder
+        private _formBuilder: FormBuilder,
+        private _fuseTranslationLoaderService: FuseTranslationLoaderService,
+        private _productService: ProductService
     ) {
+        this._fuseTranslationLoaderService.loadTranslations(english, french);
+        // Register the custom chart.js plugin
+        this._registerCustomChartJSPlugin();
+        // Get emails from the service
+        this.emails = this._productService.emails;
+        // Assign the data to the data source for the table to render
+        this.dataSource = new MatTableDataSource(this.emails);
     }
 
 
@@ -69,11 +94,20 @@ export class ProductComponent implements OnInit {
             'extraShippingFee': 3.00,
             'active'          : true
         };
-        console.log(this.product.name);
         this.productForm = this.createProductForm();
-        /*return this.product;*/
+        // Get the widgets from the service
+        this.widgets = this._productService.widgets;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
     }
 
+    applyFilter(filterValue: string): void {
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+
+        if (this.dataSource.paginator) {
+            this.dataSource.paginator.firstPage();
+        }
+    }
     /**
      * Create product form
      *
@@ -103,6 +137,70 @@ export class ProductComponent implements OnInit {
             weight          : [{value: this.product.weight, disabled: true}],
             extraShippingFee: [{value: this.product.extraShippingFee, disabled: true}],
             active          : [{value: this.product.extraShippingFee, disabled: true}]
+        });
+    }
+    // -----------------------------------------------------------------------------------------------------
+    // @ Private methods
+    // -----------------------------------------------------------------------------------------------------
+
+    /**
+     * Register a custom plugin
+     */
+    private _registerCustomChartJSPlugin(): void
+    {
+        (<any>window).Chart.plugins.register({
+            afterDatasetsDraw: function (chart, easing): any {
+                // Only activate the plugin if it's made available
+                // in the options
+                if (
+                    !chart.options.plugins.xLabelsOnTop ||
+                    (chart.options.plugins.xLabelsOnTop && chart.options.plugins.xLabelsOnTop.active === false)
+                )
+                {
+                    return;
+                }
+
+                // To only draw at the end of animation, check for easing === 1
+                const ctx = chart.ctx;
+
+                chart.data.datasets.forEach(function (dataset, i): any {
+                    const meta = chart.getDatasetMeta(i);
+                    if ( !meta.hidden )
+                    {
+                        meta.data.forEach(function (element, index): any {
+
+                            // Draw the text in black, with the specified font
+                            ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+                            const fontSize = 13;
+                            const fontStyle = 'normal';
+                            const fontFamily = 'Roboto, Helvetica Neue, Arial';
+                            ctx.font = (<any>window).Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
+
+                            // Just naively convert to string for now
+                            const dataString = dataset.data[index].toString() + 'k';
+
+                            // Make sure alignment settings are correct
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            const padding = 15;
+                            const startY = 24;
+                            const position = element.tooltipPosition();
+                            ctx.fillText(dataString, position.x, startY);
+
+                            ctx.save();
+
+                            ctx.beginPath();
+                            ctx.setLineDash([5, 3]);
+                            ctx.moveTo(position.x, startY + padding);
+                            ctx.lineTo(position.x, position.y - padding);
+                            ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+                            ctx.stroke();
+
+                            ctx.restore();
+                        });
+                    }
+                });
+            }
         });
     }
 
