@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { NgModule }             from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { TranslateModule }      from '@ngx-translate/core';
 
 import { FuseSharedModule } from '@fuse/shared.module';
+import { AuthGuard }        from '../authentication/login/auth.guard';
 
 import { ProductsComponent } from './products.component';
 import {
@@ -26,10 +27,11 @@ import { ChartsModule } from 'ng2-charts';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FuseWidgetModule } from '../../../@fuse/components';
 
-const routes = [
+const routes: Routes = [
     {
         path     : 'products',
-        component: ProductsComponent
+        component: ProductsComponent,
+        canActivate: [AuthGuard]
     },
     {
         path     : 'products/:id/:handle',
