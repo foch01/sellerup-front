@@ -1,4 +1,4 @@
-satges:
+stages:
   - build
 compilar:
   stage: builds
