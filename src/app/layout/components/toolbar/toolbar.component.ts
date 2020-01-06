@@ -1,13 +1,15 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { TranslateService } from '@ngx-translate/core';
-import * as _ from 'lodash';
+import { Router }                                          from '@angular/router';
+import { Subject }                                         from 'rxjs';
+import { takeUntil }                                       from 'rxjs/operators';
+import { TranslateService }                                from '@ngx-translate/core';
+import * as _                                              from 'lodash';
 
 import { FuseConfigService } from '@fuse/services/config.service';
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 
-import { navigation } from 'app/navigation/navigation';
+import { navigation }  from 'app/navigation/navigation';
+import { AuthService } from '../../../main/authentication/login/auth.service';
 
 @Component({
     selector     : 'toolbar',
@@ -35,11 +37,15 @@ export class ToolbarComponent implements OnInit, OnDestroy
      * @param {FuseConfigService} _fuseConfigService
      * @param {FuseSidebarService} _fuseSidebarService
      * @param {TranslateService} _translateService
+     * @param authService
+     * @param router
      */
     constructor(
         private _fuseConfigService: FuseConfigService,
         private _fuseSidebarService: FuseSidebarService,
-        private _translateService: TranslateService
+        private _translateService: TranslateService,
+        private authService: AuthService,
+        private router: Router
     )
     {
         // Set the defaults
@@ -159,5 +165,9 @@ export class ToolbarComponent implements OnInit, OnDestroy
 
         // Use the selected language for translations
         this._translateService.use(lang.id);
+    }
+
+    logout() {
+        this.authService.signOut();
     }
 }
