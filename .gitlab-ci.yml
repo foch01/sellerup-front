@@ -1,0 +1,8 @@
+satges:
+  - build
+compilar:
+  stage: builds
+  tags: 
+    - orosales_ops
+  script:
+    - cmd
