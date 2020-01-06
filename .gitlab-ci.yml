@@ -6,3 +6,6 @@ compilar:
     - orosales_ops
   script:
     - cmd
+    #- rm -r -fo "D:\IMIE - CLASSES\Pj-SellerUp\sellerup-front" #rd "D:\CAP\ci" /S /Q 
+    - npm install
+    - npm run build-prod
