@@ -9,7 +9,7 @@
 
 
   <!--Bandeau Bleu-->
-  <div class="header accent"
+  <div class="header accent" style="margin-bottom: 120px;"
              fxLayout="column" fxLayoutAlign="center center"
              fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="space-between center">
     <div class="email">
@@ -18,16 +18,19 @@
     </div>
   </div> 
   <!---------------------------->
-  <div class="blocbleu"></div>
   <div id=corpspage>
-      <FORM>
-          <INPUT type="checkbox" name="activer" value="Activer">
-          Activer<br>
-      </FORM>
+      <div>
+          <form id="activer">
+            <INPUT type="checkbox" name="activer" value="Activer">
+            Activer<br>
+          </form>
+      </div>
+
       <div id="formu">
           <label for="name">Titre  </label>
           <input type="text" name="titre_email">
       </div>
+
       <div>
         <label for="choixdossier">Choix du Dossier   </label>
 
@@ -46,17 +49,20 @@
       </div>
 
       <!--A CHANGER avec les bons attributs POUR LA SUITE-->
+      <div>
+        <ckeditor [editor]="Editor" data="<p>Hello, csharp corner!</p>"></ckeditor>
+      </div>
 
-      <ckeditor [editor]="Editor" data="<p>Hello, csharp corner!</p>"></ckeditor>
-      
-      <FORM>
-        <INPUT type="checkbox" name="joinfacture" value="Joindre la facture">
-      Joindre la facture<br>
-      </FORM>
+      <div>
+          <form>
+              <INPUT type="checkbox" name="joinfacture" value="Joindre la facture">
+                Joindre la facture<br>
+          </form>
+      </div>
 
-      <input type="file" accept="image/png, image/jpeg">
+      <div><input type="file" accept="image/png, image/jpeg"></div>
 
-      <div id=""> <!-----------A COMPLETER----------->
+      <div id="deroul"> <!-----------A COMPLETER----------->
         <select id="marketplace">
           <option value=""> Marketplace </option>
           <option value="Doss1">Dossier_1</option>
@@ -75,7 +81,7 @@
       </div>
 
 
-      <div id="">
+      <div id="deroul">
         <select id="unittps">
           <option value=""> Unité de temps </option>
           <option value="Doss1">Dossier_1</option>
@@ -85,7 +91,7 @@
         </select>
 
         <select id="plage">
-          <option value=""> Plage de... </option>
+          <option value=""> Plage de jsp </option>
           <option value="Doss1">Dossier_1</option>
           <option value="Doss2">Dossier_2</option>
           <option value="Doss3">Dossier_3</option>
@@ -105,7 +111,9 @@
 
       </div>
 
-      <button mat-raised-button color="primary" (click)="handleSaveEmail()">Enregistrer</button>
+      <div>
+        <button mat-raised-button color="primary" (click)="handleSaveEmail()">Enregistrer</button>
+      </div>
   </div>
       
 
