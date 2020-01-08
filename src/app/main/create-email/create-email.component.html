@@ -50,7 +50,7 @@
 
       <!--A CHANGER avec les bons attributs POUR LA SUITE-->
       <div>
-        <ckeditor [editor]="Editor" data="<p>Hello, csharp corner!</p>"></ckeditor>
+        <ckeditor [editor]="Editor" (change)="onChange($event)" data="<p>Hello, csharp corner!</p>"></ckeditor>
       </div>
 
       <div>
@@ -112,7 +112,7 @@
       </div>
 
       <div>
-        <button mat-raised-button color="primary" (click)="handleSaveEmail()">Enregistrer</button>
+        <button mat-raised-button color="primary" (click)="handleSaveForm()">Enregistrer</button>
       </div>
   </div>
       
