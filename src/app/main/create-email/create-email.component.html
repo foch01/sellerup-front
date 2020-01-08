@@ -1,0 +1,112 @@
+ 
+  <!--CORPS DU TEXTE-->
+
+<div id="createemail" class="page-layout carded fullwidth inner-scroll">
+
+  <!-- TOP BACKGROUND -->
+  <div class="top-bg accent"></div>
+  <!-- / TOP BACKGROUND -->
+
+
+  <!--Bandeau Bleu-->
+  <div class="header accent"
+             fxLayout="column" fxLayoutAlign="center center"
+             fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="space-between center">
+    <div class="email">
+      <mat-icon id=logoemail>alternate_email    </mat-icon>
+      <h1 class=titreemail>Nouvel Email</h1>
+    </div>
+  </div> 
+  <!---------------------------->
+  <div class="blocbleu"></div>
+  <div id=corpspage>
+      <FORM>
+          <INPUT type="checkbox" name="activer" value="Activer">
+          Activer<br>
+      </FORM>
+      <div id="formu">
+          <label for="name">Titre  </label>
+          <input type="text" name="titre_email">
+      </div>
+      <div>
+        <label for="choixdossier">Choix du Dossier   </label>
+
+          <select id="choixdoss">
+              <option value=""> Dossier </option>
+              <option value="Doss1">Dossier_1</option>
+              <option value="Doss2">Dossier_2</option>
+              <option value="Doss3">Dossier_3</option>
+              <option value="Doss4">Dossier_4</option>
+          </select>
+          <!--"Dossier" menu déroulant avec plusieurs "types" emails-->
+      </div>
+      <div id="formu">
+          <label for="name">Sujet du mail  </label>
+          <input type="text" name="num_dossier">
+      </div>
+
+      <!--A CHANGER avec les bons attributs POUR LA SUITE-->
+
+      <ckeditor [editor]="Editor" data="<p>Hello, csharp corner!</p>"></ckeditor>
+      
+      <FORM>
+        <INPUT type="checkbox" name="joinfacture" value="Joindre la facture">
+      Joindre la facture<br>
+      </FORM>
+
+      <input type="file" accept="image/png, image/jpeg">
+
+      <div id=""> <!-----------A COMPLETER----------->
+        <select id="marketplace">
+          <option value=""> Marketplace </option>
+          <option value="Doss1">Dossier_1</option>
+          <option value="Doss2">Dossier_2</option>
+          <option value="Doss3">Dossier_3</option>
+          <option value="Doss4">Dossier_4</option>
+        </select>
+
+        <select id="jsp">
+          <option value=""> JSP </option>
+          <option value="Doss1">Dossier_1</option>
+          <option value="Doss2">Dossier_2</option>
+          <option value="Doss3">Dossier_3</option>
+          <option value="Doss4">Dossier_4</option>
+        </select>
+      </div>
+
+
+      <div id="">
+        <select id="unittps">
+          <option value=""> Unité de temps </option>
+          <option value="Doss1">Dossier_1</option>
+          <option value="Doss2">Dossier_2</option>
+          <option value="Doss3">Dossier_3</option>
+          <option value="Doss4">Dossier_4</option>
+        </select>
+
+        <select id="plage">
+          <option value=""> Plage de... </option>
+          <option value="Doss1">Dossier_1</option>
+          <option value="Doss2">Dossier_2</option>
+          <option value="Doss3">Dossier_3</option>
+          <option value="Doss4">Dossier_4</option>
+        </select>
+
+        <select id="statcmd">
+          <option value=""> Status de la commande </option>
+          <option value="Doss1">Dossier_1</option>
+          <option value="Doss2">Dossier_2</option>
+          <option value="Doss3">Dossier_3</option>
+          <option value="Doss4">Dossier_4</option>
+        </select>
+
+        <label>à  </label>
+        <input type="text" name=""> <!-----------A COMPLETER------------>
+
+      </div>
+
+      <button mat-raised-button color="primary" (click)="handleSaveEmail()">Enregistrer</button>
+  </div>
+      
+
+</div>

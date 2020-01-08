@@ -15,6 +15,9 @@ export const locale = {
             },
             'FORGOT-PASSWORD'        : {
                 'TITLE': 'Mot de passe oublié'
+            },
+            'CREATE-EMAIL'        : {
+                'TITLE': 'Création d\'email'
             }
         }
     }

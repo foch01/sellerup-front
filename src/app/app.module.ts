@@ -22,7 +22,7 @@ import { LoginModule } from './main/authentication/login/login.module';
 import { ForgotPasswordModule } from './main/authentication/forgot-password/forgot-password.module';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { FakeDbService } from './fake-db/fake-db.service';
-
+import { CreateEmailModule } from './main/create-email/create-email.module';
 const appRoutes: Routes = [
     {
         path      : '**',
@@ -67,7 +67,8 @@ const appRoutes: Routes = [
         // App modules
         LayoutModule,
         SampleModule,
-        ProductsModule
+        ProductsModule,
+        CreateEmailModule,
     ],
     bootstrap   : [
         AppComponent
