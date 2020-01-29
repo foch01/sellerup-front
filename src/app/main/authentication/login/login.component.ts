@@ -1,17 +1,17 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, Validators }   from '@angular/forms';
-import { Router }                               from '@angular/router';
-import { isNullOrUndefined }                    from 'util';
-import { fuseAnimations }                       from '../../../../@fuse/animations';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { isNullOrUndefined } from 'util';
+import { fuseAnimations } from '../../../../@fuse/animations';
 import { FuseConfigService } from '../../../../@fuse/services/config.service';
-import { AuthService }       from '../../../core/services/auth.service';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
-    selector     : 'app-login',
-    templateUrl  : './login.component.html',
-    styleUrls    : ['./login.component.scss'],
-    animations   : fuseAnimations,
-    encapsulation: ViewEncapsulation.None
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss'],
+    animations: fuseAnimations,
+    encapsulation: ViewEncapsulation.None,
 })
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
@@ -28,24 +28,24 @@ export class LoginComponent implements OnInit {
         private _fuseConfigService: FuseConfigService,
         private _formBuilder: FormBuilder,
         private authService: AuthService,
-        private router: Router
+        private router: Router,
     ) {
         // Configure the layout
         this._fuseConfigService.config = {
             layout: {
-                navbar   : {
-                    hidden: true
+                navbar: {
+                    hidden: true,
                 },
-                toolbar  : {
-                    hidden: true
+                toolbar: {
+                    hidden: true,
                 },
-                footer   : {
-                    hidden: true
+                footer: {
+                    hidden: true,
                 },
                 sidepanel: {
-                    hidden: true
-                }
-            }
+                    hidden: true,
+                },
+            },
         };
     }
 
@@ -54,22 +54,13 @@ export class LoginComponent implements OnInit {
      */
     ngOnInit(): void {
         this.loginForm = this._formBuilder.group({
-            email   : ['',
-                       [
-                           Validators.required,
-                           Validators.email
-                       ]
-            ],
-            password: ['',
-                       Validators.required
-            ]
+            email: ['', [Validators.required, Validators.email]],
+            password: ['', Validators.required],
         });
     }
 
     onSubmit() {
-        this.authService.login(this.loginForm.value.email,
-            this.loginForm.value.password)
-        .subscribe(token => {
+        this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(token => {
             if (!isNullOrUndefined(token)) {
                 this.authService.addToLocalStorage(token);
                 this.router.navigate(['/products']);
@@ -77,5 +68,4 @@ export class LoginComponent implements OnInit {
             }
         });
     }
-
 }

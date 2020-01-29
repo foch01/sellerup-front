@@ -1,18 +1,15 @@
-import { HttpClient }       from '@angular/common/http';
-import { Injectable }       from '@angular/core';
-import { Router }           from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { environment }      from '../../../environments/environment.hmr';
-import { Token }            from '../../shared/models/token.model';
+import { environment } from '../../../environments/environment.hmr';
+import { Token } from '../../shared/models/token.model';
 
 @Injectable()
 export class AuthService {
     resourceUrl = '/login';
 
-    constructor(private httpClient: HttpClient,
-                private router: Router,
-                private jwtHelper: JwtHelperService) {
-    }
+    constructor(private httpClient: HttpClient, private router: Router, private jwtHelper: JwtHelperService) {}
 
     public login(email: string, password: string) {
         const body = { email: email, password: password };

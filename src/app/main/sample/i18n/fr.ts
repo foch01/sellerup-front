@@ -1,8 +1,8 @@
 export const locale = {
     lang: 'fr',
     data: {
-        'SAMPLE': {
-            'HELLO': 'Bonjour tout le monde !'
-        }
-    }
+        SAMPLE: {
+            HELLO: 'Bonjour tout le monde !',
+        },
+    },
 };

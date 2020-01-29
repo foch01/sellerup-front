@@ -1,28 +1,25 @@
-import { CommonModule }     from '@angular/common';
-import { NgModule }         from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import {
     MatButtonModule,
     MatCheckboxModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
-}                           from '@angular/material';
-import { RouterModule }     from '@angular/router';
-import {
-    JwtHelperService,
-    JwtModule
-}                           from '@auth0/angular-jwt';
+    MatInputModule,
+} from '@angular/material';
+import { RouterModule } from '@angular/router';
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { FuseSharedModule } from '../../../@fuse/fuse-shared.module';
-import { NoAuthGuard }      from '../../core/guards/no-auth.guard';
-import { SharedModule }     from '../../shared/shared.module';
-import { LoginComponent }   from './login/login.component';
+import { NoAuthGuard } from '../../core/guards/no-auth.guard';
+import { SharedModule } from '../../shared/shared.module';
+import { LoginComponent } from './login/login.component';
 
 const routes = [
     {
-        path       : 'login',
-        component  : LoginComponent,
-        canActivate: [NoAuthGuard]
-    }
+        path: 'login',
+        component: LoginComponent,
+        canActivate: [NoAuthGuard],
+    },
 ];
 
 export function tokenGetter() {
@@ -30,10 +27,8 @@ export function tokenGetter() {
 }
 
 @NgModule({
-    declarations: [
-        LoginComponent
-    ],
-    imports     : [
+    declarations: [LoginComponent],
+    imports: [
         CommonModule,
         SharedModule,
         RouterModule.forChild(routes),
@@ -45,14 +40,10 @@ export function tokenGetter() {
         FuseSharedModule,
         JwtModule.forRoot({
             config: {
-                tokenGetter: tokenGetter
-            }
-        })
+                tokenGetter: tokenGetter,
+            },
+        }),
     ],
-    providers   : [
-        JwtHelperService
-    ]
-
+    providers: [JwtHelperService],
 })
-export class AuthModule {
-}
+export class AuthModule {}

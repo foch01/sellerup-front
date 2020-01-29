@@ -6,20 +6,8 @@ import { FuseSharedModule } from '@fuse/fuse-shared.module';
 import { QuickPanelComponent } from 'app/layout/components/quick-panel/quick-panel.component';
 
 @NgModule({
-    declarations: [
-        QuickPanelComponent
-    ],
-    imports     : [
-        MatDividerModule,
-        MatListModule,
-        MatSlideToggleModule,
-
-        FuseSharedModule,
-    ],
-    exports: [
-        QuickPanelComponent
-    ]
+    declarations: [QuickPanelComponent],
+    imports: [MatDividerModule, MatListModule, MatSlideToggleModule, FuseSharedModule],
+    exports: [QuickPanelComponent],
 })
-export class QuickPanelModule
-{
-}
+export class QuickPanelModule {}

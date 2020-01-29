@@ -1,7 +1,6 @@
-@import "src/@fuse/scss/fuse";
+@import 'src/@fuse/scss/fuse';
 
 app-login {
-
     #login {
         width: 100%;
         overflow: hidden;
@@ -96,13 +95,13 @@ app-login {
                         margin-top: 8px;
 
                         .remember-me {
-                            margin-bottom: 16px
+                            margin-bottom: 16px;
                         }
 
                         .forgot-password {
                             font-size: 13px;
                             font-weight: 600;
-                            margin-bottom: 16px
+                            margin-bottom: 16px;
                         }
                     }
 
@@ -153,12 +152,11 @@ app-login {
                 }
 
                 button {
-
                     &.google,
                     &.facebook {
                         width: 70%;
                         text-transform: none;
-                        color: #FFFFFF;
+                        color: #ffffff;
                         font-size: 13px;
 
                         @include media-breakpoint('xs') {
@@ -166,13 +164,13 @@ app-login {
                         }
 
                         mat-icon {
-                            color: #FFFFFF;
+                            color: #ffffff;
                             margin: 0 8px 0 0;
                         }
                     }
 
                     &.google {
-                        background-color: #D73D32;
+                        background-color: #d73d32;
                         margin-bottom: 8px;
                     }
 
@@ -191,7 +189,6 @@ app-login {
                     }
 
                     .link {
-
                     }
                 }
             }
