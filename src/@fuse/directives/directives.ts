@@ -3,7 +3,10 @@ import { NgModule } from '@angular/core';
 import { FuseIfOnDomDirective } from '@fuse/directives/fuse-if-on-dom/fuse-if-on-dom.directive';
 import { FuseInnerScrollDirective } from '@fuse/directives/fuse-inner-scroll/fuse-inner-scroll.directive';
 import { FusePerfectScrollbarDirective } from '@fuse/directives/fuse-perfect-scrollbar/fuse-perfect-scrollbar.directive';
-import { FuseMatSidenavHelperDirective, FuseMatSidenavTogglerDirective } from '@fuse/directives/fuse-mat-sidenav/fuse-mat-sidenav.directive';
+import {
+    FuseMatSidenavHelperDirective,
+    FuseMatSidenavTogglerDirective,
+} from '@fuse/directives/fuse-mat-sidenav/fuse-mat-sidenav.directive';
 
 @NgModule({
     declarations: [
@@ -11,17 +14,15 @@ import { FuseMatSidenavHelperDirective, FuseMatSidenavTogglerDirective } from '@
         FuseInnerScrollDirective,
         FuseMatSidenavHelperDirective,
         FuseMatSidenavTogglerDirective,
-        FusePerfectScrollbarDirective
+        FusePerfectScrollbarDirective,
     ],
-    imports     : [],
-    exports     : [
+    imports: [],
+    exports: [
         FuseIfOnDomDirective,
         FuseInnerScrollDirective,
         FuseMatSidenavHelperDirective,
         FuseMatSidenavTogglerDirective,
-        FusePerfectScrollbarDirective
-    ]
+        FusePerfectScrollbarDirective,
+    ],
 })
-export class FuseDirectivesModule
-{
-}
+export class FuseDirectivesModule {}
