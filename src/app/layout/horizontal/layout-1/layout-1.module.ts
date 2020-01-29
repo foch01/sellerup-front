@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { MatSidenavModule } from '@angular/material';
 
 import { FuseSidebarModule, FuseThemeOptionsModule } from '@fuse/components';
-import { FuseSharedModule } from '@fuse/shared.module';
+import { FuseSharedModule }                          from '@fuse/fuse-shared.module';
 
 import { ContentModule } from 'app/layout/components/content/content.module';
 import { FooterModule } from 'app/layout/components/footer/footer.module';

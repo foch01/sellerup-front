@@ -12,9 +12,7 @@ import { FusePipesModule } from '@fuse/pipes/pipes.module';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-
         FlexLayoutModule,
-
         FuseDirectivesModule,
         FusePipesModule
     ],
@@ -22,9 +20,7 @@ import { FusePipesModule } from '@fuse/pipes/pipes.module';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-
         FlexLayoutModule,
-
         FuseDirectivesModule,
         FusePipesModule
     ]

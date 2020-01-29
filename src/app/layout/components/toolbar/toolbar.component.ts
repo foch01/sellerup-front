@@ -9,7 +9,7 @@ import { FuseConfigService } from '@fuse/services/config.service';
 import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
 
 import { navigation }  from 'app/navigation/navigation';
-import { AuthService } from '../../../main/authentication/login/auth.service';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
     selector     : 'toolbar',
