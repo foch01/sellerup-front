@@ -8,12 +8,11 @@ import { FuseMatchMediaService } from '@fuse/services/match-media.service';
 import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
 
 @Component({
-    selector   : 'fuse-shortcuts',
+    selector: 'fuse-shortcuts',
     templateUrl: './shortcuts.component.html',
-    styleUrls  : ['./shortcuts.component.scss']
+    styleUrls: ['./shortcuts.component.scss'],
 })
-export class FuseShortcutsComponent implements OnInit, OnDestroy
-{
+export class FuseShortcutsComponent implements OnInit, OnDestroy {
     shortcutItems: any[];
     navigationItems: any[];
     filteredNavigationItems: any[];
@@ -46,9 +45,8 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
         private _fuseMatchMediaService: FuseMatchMediaService,
         private _fuseNavigationService: FuseNavigationService,
         private _mediaObserver: MediaObserver,
-        private _renderer: Renderer2
-    )
-    {
+        private _renderer: Renderer2,
+    ) {
         // Set the defaults
         this.shortcutItems = [];
         this.searching = false;
@@ -65,62 +63,56 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
     /**
      * On init
      */
-    ngOnInit(): void
-    {
+    ngOnInit(): void {
         // Get the navigation items and flatten them
-        this.filteredNavigationItems = this.navigationItems = this._fuseNavigationService.getFlatNavigation(this.navigation);
+        this.filteredNavigationItems = this.navigationItems = this._fuseNavigationService.getFlatNavigation(
+            this.navigation,
+        );
 
-        if ( this._cookieService.check('FUSE2.shortcuts') )
-        {
+        if (this._cookieService.check('FUSE2.shortcuts')) {
             this.shortcutItems = JSON.parse(this._cookieService.get('FUSE2.shortcuts'));
-        }
-        else
-        {
+        } else {
             // User's shortcut items
             this.shortcutItems = [
                 {
-                    'title': 'Calendar',
-                    'type' : 'item',
-                    'icon' : 'today',
-                    'url'  : '/apps/calendar'
+                    title: 'Calendar',
+                    type: 'item',
+                    icon: 'today',
+                    url: '/apps/calendar',
                 },
                 {
-                    'title': 'Mail',
-                    'type' : 'item',
-                    'icon' : 'email',
-                    'url'  : '/apps/mail'
+                    title: 'Mail',
+                    type: 'item',
+                    icon: 'email',
+                    url: '/apps/mail',
                 },
                 {
-                    'title': 'Contacts',
-                    'type' : 'item',
-                    'icon' : 'account_box',
-                    'url'  : '/apps/contacts'
+                    title: 'Contacts',
+                    type: 'item',
+                    icon: 'account_box',
+                    url: '/apps/contacts',
                 },
                 {
-                    'title': 'To-Do',
-                    'type' : 'item',
-                    'icon' : 'check_box',
-                    'url'  : '/apps/todo'
-                }
+                    title: 'To-Do',
+                    type: 'item',
+                    icon: 'check_box',
+                    url: '/apps/todo',
+                },
             ];
         }
 
         // Subscribe to media changes
-        this._fuseMatchMediaService.onMediaChange
-            .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe(() => {
-                if ( this._mediaObserver.isActive('gt-sm') )
-                {
-                    this.hideMobileShortcutsPanel();
-                }
-            });
+        this._fuseMatchMediaService.onMediaChange.pipe(takeUntil(this._unsubscribeAll)).subscribe(() => {
+            if (this._mediaObserver.isActive('gt-sm')) {
+                this.hideMobileShortcutsPanel();
+            }
+        });
     }
 
     /**
      * On destroy
      */
-    ngOnDestroy(): void
-    {
+    ngOnDestroy(): void {
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
@@ -135,12 +127,10 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
      *
      * @param event
      */
-    search(event): void
-    {
+    search(event): void {
         const value = event.target.value.toLowerCase();
 
-        if ( value === '' )
-        {
+        if (value === '') {
             this.searching = false;
             this.filteredNavigationItems = this.navigationItems;
 
@@ -149,7 +139,7 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
 
         this.searching = true;
 
-        this.filteredNavigationItems = this.navigationItems.filter((navigationItem) => {
+        this.filteredNavigationItems = this.navigationItems.filter(navigationItem => {
             return navigationItem.title.toLowerCase().includes(value);
         });
     }
@@ -160,14 +150,11 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
      * @param event
      * @param itemToToggle
      */
-    toggleShortcut(event, itemToToggle): void
-    {
+    toggleShortcut(event, itemToToggle): void {
         event.stopPropagation();
 
-        for ( let i = 0; i < this.shortcutItems.length; i++ )
-        {
-            if ( this.shortcutItems[i].url === itemToToggle.url )
-            {
+        for (let i = 0; i < this.shortcutItems.length; i++) {
+            if (this.shortcutItems[i].url === itemToToggle.url) {
                 this.shortcutItems.splice(i, 1);
 
                 // Save to the cookies
@@ -189,8 +176,7 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
      * @param navigationItem
      * @returns {any}
      */
-    isInShortcuts(navigationItem): any
-    {
+    isInShortcuts(navigationItem): any {
         return this.shortcutItems.find(item => {
             return item.url === navigationItem.url;
         });
@@ -199,8 +185,7 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
     /**
      * On menu open
      */
-    onMenuOpen(): void
-    {
+    onMenuOpen(): void {
         setTimeout(() => {
             this.searchInputField.nativeElement.focus();
         });
@@ -209,8 +194,7 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
     /**
      * Show mobile shortcuts
      */
-    showMobileShortcutsPanel(): void
-    {
+    showMobileShortcutsPanel(): void {
         this.mobileShortcutsPanelActive = true;
         this._renderer.addClass(this.shortcutsEl.nativeElement, 'show-mobile-panel');
     }
@@ -218,8 +202,7 @@ export class FuseShortcutsComponent implements OnInit, OnDestroy
     /**
      * Hide mobile shortcuts
      */
-    hideMobileShortcutsPanel(): void
-    {
+    hideMobileShortcutsPanel(): void {
         this.mobileShortcutsPanelActive = false;
         this._renderer.removeClass(this.shortcutsEl.nativeElement, 'show-mobile-panel');
     }
