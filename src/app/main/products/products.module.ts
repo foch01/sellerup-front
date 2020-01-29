@@ -2,8 +2,9 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TranslateModule }      from '@ngx-translate/core';
 
-import { FuseSharedModule } from '@fuse/shared.module';
-import { AuthGuard }        from '../authentication/login/auth.guard';
+import { FuseSharedModule } from '@fuse/fuse-shared.module';
+import { AuthGuard }        from '../../core/guards/auth.guard';
+import { SharedModule }     from '../../shared/shared.module';
 
 import { ProductsComponent } from './products.component';
 import {
@@ -51,6 +52,7 @@ const routes: Routes = [
         RouterModule.forChild(routes),
 
         TranslateModule,
+        SharedModule,
         FuseSharedModule,
         MatButtonModule,
         MatChipsModule,

@@ -1,18 +1,21 @@
-import { CommonModule }                from '@angular/common';
-import { NgModule }                    from '@angular/core';
+import { CommonModule }     from '@angular/common';
+import { NgModule }         from '@angular/core';
 import {
     MatButtonModule,
     MatCheckboxModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule
-}                                      from '@angular/material';
-import { RouterModule }                from '@angular/router';
-import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
-import { FuseSharedModule }            from '../../../../@fuse/shared.module';
-import { AuthService }                 from './auth.service';
-import { LoginComponent }              from './login.component';
-import { NoAuthGuard }                 from './no-auth.guard';
+}                           from '@angular/material';
+import { RouterModule }     from '@angular/router';
+import {
+    JwtHelperService,
+    JwtModule
+}                           from '@auth0/angular-jwt';
+import { FuseSharedModule } from '../../../@fuse/fuse-shared.module';
+import { NoAuthGuard }      from '../../core/guards/no-auth.guard';
+import { SharedModule }     from '../../shared/shared.module';
+import { LoginComponent }   from './login/login.component';
 
 const routes = [
     {
@@ -25,12 +28,14 @@ const routes = [
 export function tokenGetter() {
     return localStorage.getItem('token');
 }
+
 @NgModule({
     declarations: [
         LoginComponent
     ],
     imports     : [
         CommonModule,
+        SharedModule,
         RouterModule.forChild(routes),
         MatButtonModule,
         MatCheckboxModule,
@@ -45,10 +50,9 @@ export function tokenGetter() {
         })
     ],
     providers   : [
-        AuthService,
         JwtHelperService
     ]
 
 })
-export class LoginModule {
+export class AuthModule {
 }

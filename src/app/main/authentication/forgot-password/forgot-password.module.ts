@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ForgotPasswordComponent } from './forgot-password.component';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
-import { FuseSharedModule } from '../../../../@fuse/shared.module';
+import { FuseSharedModule }                                                   from '../../../../@fuse/fuse-shared.module';
 
 const routes = [
     {
