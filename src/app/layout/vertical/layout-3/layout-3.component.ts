@@ -6,13 +6,12 @@ import { FuseConfigService } from '@fuse/services/config.service';
 import { navigation } from 'app/navigation/navigation';
 
 @Component({
-    selector     : 'vertical-layout-3',
-    templateUrl  : './layout-3.component.html',
-    styleUrls    : ['./layout-3.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    selector: 'vertical-layout-3',
+    templateUrl: './layout-3.component.html',
+    styleUrls: ['./layout-3.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
-export class VerticalLayout3Component implements OnInit, OnDestroy
-{
+export class VerticalLayout3Component implements OnInit, OnDestroy {
     fuseConfig: any;
     navigation: any;
 
@@ -24,10 +23,7 @@ export class VerticalLayout3Component implements OnInit, OnDestroy
      *
      * @param {FuseConfigService} _fuseConfigService
      */
-    constructor(
-        private _fuseConfigService: FuseConfigService
-    )
-    {
+    constructor(private _fuseConfigService: FuseConfigService) {
         // Set the defaults
         this.navigation = navigation;
 
@@ -42,21 +38,17 @@ export class VerticalLayout3Component implements OnInit, OnDestroy
     /**
      * On init
      */
-    ngOnInit(): void
-    {
+    ngOnInit(): void {
         // Subscribe to config changes
-        this._fuseConfigService.config
-            .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((config) => {
-                this.fuseConfig = config;
-            });
+        this._fuseConfigService.config.pipe(takeUntil(this._unsubscribeAll)).subscribe(config => {
+            this.fuseConfig = config;
+        });
     }
 
     /**
      * On destroy
      */
-    ngOnDestroy(): void
-    {
+    ngOnDestroy(): void {
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();

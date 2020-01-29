@@ -1,43 +1,41 @@
-import { HttpClientModule }                                                 from '@angular/common/http';
-import { NgModule }                                                         from '@angular/core';
-import { MatButtonModule, MatIconModule }                                   from '@angular/material';
-import { MatMomentDateModule }                                              from '@angular/material-moment-adapter';
-import { BrowserModule }                                                    from '@angular/platform-browser';
-import { BrowserAnimationsModule }                                          from '@angular/platform-browser/animations';
-import { RouterModule, Routes }                                             from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { MatButtonModule, MatIconModule } from '@angular/material';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule, Routes } from '@angular/router';
 import { FuseProgressBarModule, FuseSidebarModule, FuseThemeOptionsModule } from '@fuse/components';
 
-import { FuseModule }       from '@fuse/fuse.module';
+import { FuseModule } from '@fuse/fuse.module';
 import { FuseSharedModule } from '@fuse/fuse-shared.module';
-import { TranslateModule }  from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from 'app/app.component';
 
-import { fuseConfig }           from 'app/fuse-config';
-import { LayoutModule }         from 'app/layout/layout.module';
-import { SampleModule }         from 'app/main/sample/sample.module';
+import { fuseConfig } from 'app/fuse-config';
+import { LayoutModule } from 'app/layout/layout.module';
+import { SampleModule } from 'app/main/sample/sample.module';
 import 'hammerjs';
-import { CoreModule }           from './core/core.module';
-import { FakeDbService }        from './fake-db/fake-db.service';
-import { AuthModule }           from './main/authentication/auth.module';
-import { AuthService }          from './core/services/auth.service';
+import { CoreModule } from './core/core.module';
+import { FakeDbService } from './fake-db/fake-db.service';
+import { AuthModule } from './main/authentication/auth.module';
+import { AuthService } from './core/services/auth.service';
 import { ForgotPasswordModule } from './main/authentication/forgot-password/forgot-password.module';
-import { ProductsModule }       from './main/products/products.module';
-import { SharedModule }         from './shared/shared.module';
+import { ProductsModule } from './main/products/products.module';
+import { SharedModule } from './shared/shared.module';
 
 const appRoutes: Routes = [
     {
-        path      : '**',
-        redirectTo: 'sample'
-    }
+        path: '**',
+        redirectTo: 'sample',
+    },
 ];
 
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
-    imports     : [
+    declarations: [AppComponent],
+    imports: [
         CoreModule,
         SharedModule,
         BrowserModule,
@@ -46,8 +44,8 @@ const appRoutes: Routes = [
 
         TranslateModule.forRoot(),
         InMemoryWebApiModule.forRoot(FakeDbService, {
-            delay             : 0,
-            passThruUnknownUrl: true
+            delay: 0,
+            passThruUnknownUrl: true,
         }),
 
         // Material moment date module
@@ -71,14 +69,9 @@ const appRoutes: Routes = [
         // App modules
         LayoutModule,
         SampleModule,
-        ProductsModule
+        ProductsModule,
     ],
-    bootstrap   : [
-        AppComponent
-    ],
-    providers   : [
-        AuthService
-    ]
+    bootstrap: [AppComponent],
+    providers: [AuthService],
 })
-export class AppModule {
-}
+export class AppModule {}

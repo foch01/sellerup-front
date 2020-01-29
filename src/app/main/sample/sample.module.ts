@@ -8,27 +8,14 @@ import { SampleComponent } from './sample.component';
 
 const routes = [
     {
-        path     : 'sample',
-        component: SampleComponent
-    }
+        path: 'sample',
+        component: SampleComponent,
+    },
 ];
 
 @NgModule({
-    declarations: [
-        SampleComponent
-    ],
-    imports     : [
-        RouterModule.forChild(routes),
-
-        TranslateModule,
-
-        FuseSharedModule
-    ],
-    exports     : [
-        SampleComponent
-    ]
+    declarations: [SampleComponent],
+    imports: [RouterModule.forChild(routes), TranslateModule, FuseSharedModule],
+    exports: [SampleComponent],
 })
-
-export class SampleModule
-{
-}
+export class SampleModule {}

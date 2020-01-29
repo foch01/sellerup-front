@@ -1,20 +1,15 @@
-@import "src/@fuse/scss/fuse";
+@import 'src/@fuse/scss/fuse';
 
 app-products {
-
     #products {
-
         .top-bg {
-
             @include media-breakpoint('lt-md') {
                 height: 256px;
             }
         }
 
         > .center {
-
             > .header {
-
                 .search-wrapper {
                     width: 100%;
                     max-width: 480px;
@@ -56,7 +51,7 @@ app-products {
 
     .products-table {
         flex: 1 1 auto;
-        border-bottom: 1px solid rgba(0, 0, 0, .12);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
         overflow: auto;
         -webkit-overflow-scrolling: touch;
 
@@ -86,7 +81,7 @@ app-products {
             .product-image {
                 width: 52px;
                 height: 52px;
-                border: 1px solid rgba(0, 0, 0, .12);
+                border: 1px solid rgba(0, 0, 0, 0.12);
             }
         }
 
