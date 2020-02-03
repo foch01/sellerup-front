@@ -19,5 +19,6 @@ cache:
      - node_modules/
     
 #test_avec_ors:
-stage: test
- script: npm test
+ stage: test
+ script: 
+  - npm run test
