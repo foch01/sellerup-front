@@ -4,4 +4,4 @@ build:
     - orosales_ops
   script:
     - npm install
-    - npm run build-prod
+    - npm start # npm build_prod
