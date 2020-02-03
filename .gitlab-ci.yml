@@ -1,7 +1,23 @@
-build:
-  stage: build
-  tags: 
-    - orosales_ops
-  script:
-    - npm install
-    - npm start # npm build_prod
+image: node:latest
+
+stages:
+ - build
+ - test
+
+cache:
+ paths:
+  - node_modules/
+
+install_dependencies:
+ stage: build
+ script:
+  - npm install
+  - npm run lint
+  - npm run build
+ artifacts:
+   paths:
+     - node_modules/
+    
+test_avec_ors:
+stage: test
+ script: npm test
