@@ -16,7 +16,7 @@ cache:
   - npm run build
  artifacts:
    paths:
-     - node_modules/
+     - node_modules/**
     
 #test_avec_ors:
  stage: test
