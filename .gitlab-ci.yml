@@ -6,7 +6,7 @@ stages:
  - build
  - test
  - deploy
- 
+
 cache:
  paths:
   - node_modules/
@@ -32,7 +32,5 @@ uni_test:
 
 deploy-production:
   stage: deploy
-  dependencies:
-    - app-build
   script:
     - npm run deploy
