@@ -1,12 +1,12 @@
 image: node:latest
+#variables:
+# giturl: "https://$usergit$:$passgit$@@gitlab.com/vbibiv/SellerUp-Front.git"
 
-variables:
- giturl: "https://$usergit$:$passgit$@@gitlab.com/vbibiv/SellerUp-Front.git"
- 
 stages:
  - build
  - test
-
+ - deploy
+ 
 cache:
  paths:
   - node_modules/
@@ -24,7 +24,15 @@ install_dependencies:
    paths:
      - node_modules/**
     
-test_avec_ors:
+uni_test:
+ image: juristr/angular-ci-build:1.0.0
  stage: test
  script: 
-  - npm run test
+  - npm run test:ci
+
+deploy-production:
+  stage: deploy
+  dependencies:
+    - app-build
+  script:
+    - npm run deploy
