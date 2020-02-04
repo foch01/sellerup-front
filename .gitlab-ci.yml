@@ -8,7 +8,7 @@ cache:
  paths:
   - node_modules/
 
-#install_dependencies:
+install_dependencies:
  stage: build
  script:
   - npm install
@@ -18,7 +18,7 @@ cache:
    paths:
      - node_modules/**
     
-#test_avec_ors:
+test_avec_ors:
  stage: test
  script: 
   - npm run test
