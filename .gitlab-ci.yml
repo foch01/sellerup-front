@@ -9,7 +9,8 @@ stages:
 
 cache:
  paths:
-  - node_modules/
+  #- node_modules/
+  - node
 
 install_dependencies:
  stage: build
