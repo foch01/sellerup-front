@@ -18,7 +18,7 @@ install_dependencies:
   - rm package-lock.json
   - rm -fr node_modules
   - npm install
-  - npm install node -sass
+  - npm install node-sass
   - npm run build-prod
  artifacts:
    paths:
