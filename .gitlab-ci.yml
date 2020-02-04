@@ -14,7 +14,11 @@ cache:
 install_dependencies:
  stage: build
  script:
+  - npm cache verify
+  - rm package-lock.json
+  - rm fr node-modules
   - npm install
+  - npm install node -sass
   - npm run build-prod
  artifacts:
    paths:
