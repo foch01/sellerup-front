@@ -3,7 +3,9 @@ image: node:latest
 variables:
  giturl: "https://$usergit$:$passgit$@@gitlab.com/vbibiv/SellerUp-Front.git"
 
-stages:
+
+
+ stages:
  - build
  - test
 
@@ -14,10 +16,10 @@ cache:
 install_dependencies:
  stage: build
  script:
-  - npm install
+  - npm install --silent
   #- npm run lint
-  - npm run build:prod
- artifacts:
+  - npm run build
+  artifacts:
    paths:
      - node_modules/**
     
