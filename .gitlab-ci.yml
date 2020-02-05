@@ -11,16 +11,14 @@ cache:
  paths:
   - node_modules/
 
-before_script:
+install_dependencies:
+ stage: build
+ script:
   - npm cache verify
   - rm package-lock.json
   - rm -fr node_modules
   - npm install
   - npm install node-sass
-
-install_dependencies:
- stage: build
- script:
   - npm run build-prod
  artifacts:
    paths:
