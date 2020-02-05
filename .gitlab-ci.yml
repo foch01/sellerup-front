@@ -25,12 +25,12 @@ install_dependencies:
      - node_modules/**
     
 uni_test:
- image: juristr/angular-ci-build:1.0.0
  stage: test
  script: 
-  - npm run test:ci
+  - npm i && npm test
 
 deploy-production:
   stage: deploy
+  when: manual
   script:
     - npm run deploy
