@@ -11,14 +11,18 @@ cache:
  paths:
   - node_modules/
 
-install_dependencies:
- stage: build
- script:
+before_script:
+  - apt-update
+  - apt-get install -y node.js
   - npm cache verify
   - rm package-lock.json
   - rm -fr node_modules
   - npm install
   - npm install node-sass
+
+install_dependencies:
+ stage: build
+ script:
   - npm run build-prod
  artifacts:
    paths:
