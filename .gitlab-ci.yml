@@ -12,8 +12,6 @@ cache:
   - node_modules/
 
 before_script:
-  - apt-update
-  - apt-get install -y node.js
   - npm cache verify
   - rm package-lock.json
   - rm -fr node_modules
