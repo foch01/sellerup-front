@@ -27,7 +27,7 @@ install_dependencies:
 uni_test:
  stage: test
  script: 
-  - npm i && npm test
+  - npm test
 
 deploy-production:
   stage: deploy
