@@ -5,7 +5,7 @@ const { spawn } = require('child_process');
 const numberBuild = process.argv.slice(2);
 
 // @ts-ignore
-const command = spawn('tar', ['-zcf', `./sellerup-front-${numberBuild}.tar.gz`, './dist']);
+const command = spawn('tar', ['-zcf', `./build/sellerup-front-${numberBuild}.tar.gz`, './dist']);
 
 command.stdout.on('data', data => {
     console.log(`stdout: ${data}`);

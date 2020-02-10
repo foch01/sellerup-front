@@ -20,6 +20,7 @@ Build, test and install dependency:
         paths:
             - dist/**
             - src/**
+            - build/**
 
 
 Deploy to staging:
