@@ -15,7 +15,8 @@
     "e2e": "ng e2e",
     "bundle-report": "webpack-bundle-analyzer dist/stats.json",
     "lint": "tsc --noEmit && eslint \"src/**/*.{js,ts}\" --quiet",
-    "lint-fix": "tsc --noEmit && eslint \"src/**/*.{js,ts}\" --quiet --fix"
+    "lint-fix": "tsc --noEmit && eslint \"src/**/*.{js,ts}\" --quiet --fix",
+    "send": "node src/send.ts"
   },
   "private": true,
   "dependencies": {

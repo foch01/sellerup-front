@@ -15,10 +15,9 @@ Build, test and install dependency:
         - npm install
 #        - npm run lint
         - npm run build-prod
-#        - npm run build:targz ${CI_PIPELINE_IID}
+        - npm run send
     artifacts:
         paths:
             - dist/**
-            - views/**
-            - node_modules/**
-            - build/**
+            - src/**
+
