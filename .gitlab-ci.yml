@@ -15,7 +15,7 @@ Build, test and install dependency:
         - npm install
 #        - npm run lint
         - npm run build-prod
-        - npm run send
+        - npm run send ${CI_PIPELINE_IID} ${IP_SERVER_STAGING_DEPLOY}
     artifacts:
         paths:
             - dist/**
