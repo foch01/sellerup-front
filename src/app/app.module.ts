@@ -40,7 +40,7 @@ const appRoutes: Routes = [
         SharedModule,
         BrowserModule,
         BrowserAnimationsModule,
-        RouterModule.forRoot(appRoutes),
+        RouterModule.forRoot(appRoutes, { useHash: true }),
 
         TranslateModule.forRoot(),
         InMemoryWebApiModule.forRoot(FakeDbService, {

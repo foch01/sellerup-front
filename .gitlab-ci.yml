@@ -1,0 +1,24 @@
+image: node:10.15.3
+
+stages:
+    - build
+    - send and deploy staging
+    - send and deploy production
+
+cache:
+    paths:
+        - node
+
+Build, test and install dependency:
+    stage: build
+    script:
+        - npm install
+#        - npm run lint
+#        - npm run build
+#        - npm run build:targz ${CI_PIPELINE_IID}
+    artifacts:
+        paths:
+            - dist/**
+            - views/**
+            - node_modules/**
+            - build/**
