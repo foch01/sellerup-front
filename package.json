@@ -16,7 +16,9 @@
     "bundle-report": "webpack-bundle-analyzer dist/stats.json",
     "lint": "tsc --noEmit && eslint \"src/**/*.{js,ts}\" --quiet",
     "lint-fix": "tsc --noEmit && eslint \"src/**/*.{js,ts}\" --quiet --fix",
-    "send": "node src/send.ts"
+    "build-targz": "node src/build-targz.ts",
+    "send": "node src/send-targz.ts",
+    "deploy": "node src/deploy.ts"
   },
   "private": true,
   "dependencies": {
