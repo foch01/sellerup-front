@@ -9,7 +9,7 @@ const numberBuild = process.argv[2];
 const IP_SERVER = process.argv[3];
 
 // @ts-ignore
-const command = spawn('scp', [`-r`, `./build/sellerup-front-${numberBuild}.tar.gz`, `root@${IP_SERVER}:/home/sellerup-staging/sellerup-front/build/`]);
+const command = spawn('scp', [`./build/sellerup-front-${numberBuild}.tar.gz`, `root@${IP_SERVER}:/home/sellerup-staging/sellerup-front/build/`]);
 command.stdout.on('data', data => {
     console.log(command)
     console.log(`stdout: ${data}`);

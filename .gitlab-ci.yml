@@ -14,12 +14,11 @@ Build, test and install dependency:
     script:
         - npm install
 #        - npm run lint
-        - npm run build-prod
-        - npm run build:targz
+        - npm run build
+        - npm run build:targz ${CI_PIPELINE_IID}
     artifacts:
         paths:
             - dist/**
-            - src/**
             - build/**
 
 
