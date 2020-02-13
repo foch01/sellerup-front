@@ -14,8 +14,11 @@
     "test": "ng test",
     "e2e": "ng e2e",
     "bundle-report": "webpack-bundle-analyzer dist/stats.json",
-    "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet",
-    "lint-fix": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix"
+    "lint": "tsc --noEmit && eslint \"src/**/*.{js,ts}\" --quiet",
+    "lint-fix": "tsc --noEmit && eslint \"src/**/*.{js,ts}\" --quiet --fix",
+    "build:targz": "node src/build-targz.ts",
+    "send": "node src/send-targz.ts",
+    "deploy": "node src/deploy.ts"
   },
   "private": true,
   "dependencies": {
@@ -53,6 +56,7 @@
     "prettier": "^1.19.1",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
+    "eslint": "^6.6.0",
     "core-js": "2.6.2",
     "d3": "5.7.0",
     "date-fns": "1.30.1",
