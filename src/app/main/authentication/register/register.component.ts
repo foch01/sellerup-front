@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -5,6 +6,7 @@ import { isNullOrUndefined } from 'util';
 import { fuseAnimations } from '../../../../@fuse/animations';
 import { FuseConfigService } from '../../../../@fuse/services/config.service';
 import { AuthService } from '../../../core/services/auth.service';
+import { environment } from '../../../../environments/environment.hmr';
 
 @Component({
     selector: 'app-login',
@@ -14,6 +16,7 @@ import { AuthService } from '../../../core/services/auth.service';
     encapsulation: ViewEncapsulation.None,
 })
 export class RegisterComponent implements OnInit {
+    resourceUrl = '/users';
     loginForm: FormGroup;
 
     /**
@@ -29,6 +32,7 @@ export class RegisterComponent implements OnInit {
         private _formBuilder: FormBuilder,
         private authService: AuthService,
         private router: Router,
+        private httpClient: HttpClient,
     ) {
         // Configure the layout
         this._fuseConfigService.config = {
@@ -60,12 +64,10 @@ export class RegisterComponent implements OnInit {
     }
 
     onSubmit() {
-        this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(token => {
-            if (!isNullOrUndefined(token)) {
-                this.authService.addToLocalStorage(token);
-                this.router.navigate(['/products']);
-                this.authService.getCurrentUSer();
-            }
+        const body = { email: this.loginForm.value.email, password: this.loginForm.value.password };
+        
+        this.httpClient.post(environment.url + this.resourceUrl, body).subscribe(response => {
+            this.router.navigate(['/products']);
         });
     }
 }
