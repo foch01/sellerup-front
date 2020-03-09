@@ -7,7 +7,7 @@ app-register {
         background: url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
         background-size: cover;
 
-        #login-intro {
+        #register-intro {
             padding: 128px;
 
             @include media-breakpoint('sm') {
