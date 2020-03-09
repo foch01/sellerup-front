@@ -15,7 +15,7 @@ import { environment } from '../../../../environments/environment.hmr';
 })
 export class RegisterComponent implements OnInit {
     resourceUrl = '/users';
-    loginForm: FormGroup;
+    registerForm: FormGroup;
 
     /**
      * Constructor
@@ -54,14 +54,14 @@ export class RegisterComponent implements OnInit {
      * On init
      */
     ngOnInit(): void {
-        this.loginForm = this._formBuilder.group({
+        this.registerForm = this._formBuilder.group({
             email: ['', [Validators.required, Validators.email]],
             password: ['', Validators.required],
         });
     }
 
     onSubmit() {
-        const body = { email: this.loginForm.value.email, password: this.loginForm.value.password };
+        const body = { email: this.registerForm.value.email, password: this.registerForm.value.password };
         
         this.httpClient.post(environment.url + this.resourceUrl, body).subscribe(response => {
             this.router.navigate(['/products']);
