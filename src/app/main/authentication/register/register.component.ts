@@ -2,10 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { isNullOrUndefined } from 'util';
 import { fuseAnimations } from '../../../../@fuse/animations';
 import { FuseConfigService } from '../../../../@fuse/services/config.service';
-import { AuthService } from '../../../core/services/auth.service';
 import { environment } from '../../../../environments/environment.hmr';
 
 @Component({
@@ -30,7 +28,6 @@ export class RegisterComponent implements OnInit {
     constructor(
         private _fuseConfigService: FuseConfigService,
         private _formBuilder: FormBuilder,
-        private authService: AuthService,
         private router: Router,
         private httpClient: HttpClient,
     ) {
