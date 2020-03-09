@@ -10,7 +10,7 @@
                 color: white;
             }
 
-            #login-form-wrapper {
+            #register-form-wrapper {
                 @if ($is-dark) {
                     background: mat-color($fuse-navy, 600);
                 } @else {
