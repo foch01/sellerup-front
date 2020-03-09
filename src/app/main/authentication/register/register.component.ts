@@ -7,7 +7,7 @@ import { FuseConfigService } from '../../../../@fuse/services/config.service';
 import { environment } from '../../../../environments/environment.hmr';
 
 @Component({
-    selector: 'app-login',
+    selector: 'app-register',
     templateUrl: './register.component.html',
     styleUrls: ['./register.component.scss'],
     animations: fuseAnimations,
