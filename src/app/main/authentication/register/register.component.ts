@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit {
         const body = { email: this.registerForm.value.email, password: this.registerForm.value.password };
         
         this.httpClient.post(environment.url + this.resourceUrl, body).subscribe(response => {
-            this.router.navigate(['/products']);
+            this.router.navigate(['/login']);
         });
     }
 }
