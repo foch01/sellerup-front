@@ -1,10 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { fuseAnimations } from '../../../../@fuse/animations';
 import { FuseConfigService } from '../../../../@fuse/services/config.service';
-import { environment } from '../../../../environments/environment.hmr';
+import { RegisterService } from '../../../core/services/register.service';
 
 @Component({
     selector: 'app-register',
@@ -22,14 +21,14 @@ export class RegisterComponent implements OnInit {
      *
      * @param {FuseConfigService} _fuseConfigService
      * @param {FormBuilder} _formBuilder
-     * @param authService
+     * @param registerService
      * @param router
      */
     constructor(
         private _fuseConfigService: FuseConfigService,
         private _formBuilder: FormBuilder,
+        private registerService: RegisterService,
         private router: Router,
-        private httpClient: HttpClient,
     ) {
         // Configure the layout
         this._fuseConfigService.config = {
@@ -61,9 +60,7 @@ export class RegisterComponent implements OnInit {
     }
 
     onSubmit() {
-        const body = { email: this.registerForm.value.email, password: this.registerForm.value.password };
-        
-        this.httpClient.post(environment.url + this.resourceUrl, body).subscribe(response => {
+        this.registerService.register(this.registerForm.value.email, this.registerForm.value.password).subscribe(response => {
             this.router.navigate(['/login']);
         });
     }
