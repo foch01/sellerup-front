@@ -22,6 +22,7 @@ import { CoreModule } from './core/core.module';
 import { FakeDbService } from './fake-db/fake-db.service';
 import { AuthModule } from './main/authentication/auth.module';
 import { AuthService } from './core/services/auth.service';
+import { RegisterService } from './core/services/register.service';
 import { ForgotPasswordModule } from './main/authentication/forgot-password/forgot-password.module';
 import { ProductsModule } from './main/products/products.module';
 import { SharedModule } from './shared/shared.module';
@@ -72,6 +73,6 @@ const appRoutes: Routes = [
         ProductsModule,
     ],
     bootstrap: [AppComponent],
-    providers: [AuthService],
+    providers: [AuthService, RegisterService],
 })
 export class AppModule {}
