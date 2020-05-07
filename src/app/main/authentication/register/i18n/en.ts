@@ -1,5 +1,5 @@
 export const locale = {
-    lang: 'en',
+    lang: 'fr',
     data: {
         INTRO: {
             TITLE: 'Bienvenue sur SellerUp !',
@@ -7,6 +7,10 @@ export const locale = {
         },
         REGISTER: {
             TITLE: 'CRÉATION DE VOTRE COMPTE',
+            FORM: {
+                BUTTON: 'CRÉER',
+            },
+            SEPARATOR: 'OU',
         },
     },
 };

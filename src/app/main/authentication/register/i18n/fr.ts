@@ -7,6 +7,10 @@ export const locale = {
         },
         REGISTER: {
             TITLE: 'CRÉATION DE VOTRE COMPTE',
+            FORM: {
+                BUTTON: 'CRÉER',
+            },
+            SEPARATOR: 'OU',
         },
     },
 };
