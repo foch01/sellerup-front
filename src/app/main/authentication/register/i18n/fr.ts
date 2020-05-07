@@ -13,6 +13,10 @@ export const locale = {
                     ERROR1: 'Email is required',
                     ERROR2: 'Please enter a valid email address',
                 },
+                PASSWORD: {
+                    LABEL: 'Password',
+                    ERROR: 'Password is required',
+                },
                 BUTTON: 'CRÉER',
             },
             SEPARATOR: 'OU',
