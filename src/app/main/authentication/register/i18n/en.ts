@@ -8,6 +8,11 @@ export const locale = {
         REGISTER: {
             TITLE: 'CRÉATION DE VOTRE COMPTE',
             FORM: {
+                EMAIL: {
+                    LABEL: 'Email',
+                    ERROR1: 'Email is required',
+                    ERROR2: 'Please enter a valid email address',
+                },
                 BUTTON: 'CRÉER',
             },
             SEPARATOR: 'OU',
