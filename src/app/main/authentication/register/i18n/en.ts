@@ -20,6 +20,10 @@ export const locale = {
                 BUTTON: 'CRÉER',
             },
             SEPARATOR: 'OU',
+            LOGIN: {
+                TEXT: 'Vous avez déjà un compte ?',
+                LINK: 'Se connecter',
+            }
         },
     },
 };
