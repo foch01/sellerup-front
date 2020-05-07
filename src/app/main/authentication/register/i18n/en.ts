@@ -6,7 +6,7 @@ export const locale = {
             DESCRIPTION: 'C\'est l\'outil qui vous accompagne au quotidien pour la gestion Marketing et Logistique de votre boutique Amazon FBA.'
         },
         REGISTER: {
-            TITLE: 'CRÉATION DE VOTRE COMPTE',
+            TITLE: 'CREATE YOUR ACCOUNT',
             FORM: {
                 EMAIL: {
                     LABEL: 'Email',
@@ -21,8 +21,8 @@ export const locale = {
             },
             SEPARATOR: 'OR',
             LOGIN: {
-                TEXT: 'Vous avez déjà un compte ?',
-                LINK: 'Se connecter',
+                TEXT: 'Already have an account ?',
+                LINK: 'To log in',
             }
         },
     },
