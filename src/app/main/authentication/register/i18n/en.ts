@@ -2,8 +2,8 @@ export const locale = {
     lang: 'en',
     data: {
         INTRO: {
-            TITLE: 'Bienvenue sur SellerUp !',
-            DESCRIPTION: 'C\'est l\'outil qui vous accompagne au quotidien pour la gestion Marketing et Logistique de votre boutique Amazon FBA.'
+            TITLE: 'Welcome to SellerUp!',
+            DESCRIPTION: 'It is the tool that accompanies you on a daily basis for the Marketing and Logistics management of your Amazon FBA store.'
         },
         REGISTER: {
             TITLE: 'CREATE YOUR ACCOUNT',
