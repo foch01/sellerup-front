@@ -1,5 +1,5 @@
 export const locale = {
-    lang: 'fr',
+    lang: 'en',
     data: {
         INTRO: {
             TITLE: 'Bienvenue sur SellerUp !',
@@ -17,9 +17,9 @@ export const locale = {
                     LABEL: 'Password',
                     ERROR: 'Password is required',
                 },
-                BUTTON: 'CRÉER',
+                BUTTON: 'CREATE',
             },
-            SEPARATOR: 'OU',
+            SEPARATOR: 'OR',
             LOGIN: {
                 TEXT: 'Vous avez déjà un compte ?',
                 LINK: 'Se connecter',
