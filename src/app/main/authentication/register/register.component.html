@@ -5,12 +5,11 @@
         </div>
 
         <div class="title" [@animate]="{ value: '*', params: { delay: '50ms', y: '25px' } }">
-            Bienvenue sur SellerUp !
+            {{ 'INTRO.TITLE' | translate }}
         </div>
 
         <div class="description" [@animate]="{ value: '*', params: { delay: '100ms', y: '25px' } }">
-            C'est l'outil qui vous accompagne au quotidien pour la gestion Marketing et Logistique de votre boutique
-            Amazon FBA.
+            {{ 'INTRO.DESCRIPTION' | translate }}
         </div>
     </div>
 
