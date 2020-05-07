@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { fuseAnimations } from '../../../../@fuse/animations';
 import { FuseConfigService } from '../../../../@fuse/services/config.service';
 import { RegisterService } from '../../../core/services/register.service';
+import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
+import { locale as english } from './i18n/en';
+import { locale as french } from './i18n/fr';
 
 @Component({
     selector: 'app-register',
@@ -19,17 +22,20 @@ export class RegisterComponent implements OnInit {
     /**
      * Constructor
      *
+     * @param {FuseTranslationLoaderService} _fuseTranslationLoaderService
      * @param {FuseConfigService} _fuseConfigService
      * @param {FormBuilder} _formBuilder
      * @param registerService
      * @param router
      */
     constructor(
+        private _fuseTranslationLoaderService: FuseTranslationLoaderService,
         private _fuseConfigService: FuseConfigService,
         private _formBuilder: FormBuilder,
         private registerService: RegisterService,
         private router: Router,
     ) {
+        this._fuseTranslationLoaderService.loadTranslations(english, french);
         // Configure the layout
         this._fuseConfigService.config = {
             layout: {
