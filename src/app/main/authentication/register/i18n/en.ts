@@ -1,8 +1,8 @@
 export const locale = {
     lang: 'en',
     data: {
-        SAMPLE: {
-            HELLO: 'Hello, World!',
+        REGISTER: {
+            TITLE: 'CRÉATION DE VOTRE COMPTE',
         },
     },
 };

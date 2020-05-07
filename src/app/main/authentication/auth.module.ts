@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import {
     MatButtonModule,
     MatCheckboxModule,
@@ -38,6 +39,7 @@ export function tokenGetter() {
         CommonModule,
         SharedModule,
         RouterModule.forChild(routes),
+        TranslateModule,
         MatButtonModule,
         MatCheckboxModule,
         MatFormFieldModule,
