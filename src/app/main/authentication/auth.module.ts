@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import {
     MatButtonModule,
     MatCheckboxModule,
@@ -13,6 +14,7 @@ import { FuseSharedModule } from '../../../@fuse/fuse-shared.module';
 import { NoAuthGuard } from '../../core/guards/no-auth.guard';
 import { SharedModule } from '../../shared/shared.module';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes = [
     {
@@ -20,6 +22,11 @@ const routes = [
         component: LoginComponent,
         canActivate: [NoAuthGuard],
     },
+    {
+        path: 'register',
+        component: RegisterComponent,
+        canActivate: [NoAuthGuard],
+    }
 ];
 
 export function tokenGetter() {
@@ -27,11 +34,12 @@ export function tokenGetter() {
 }
 
 @NgModule({
-    declarations: [LoginComponent],
+    declarations: [LoginComponent, RegisterComponent],
     imports: [
         CommonModule,
         SharedModule,
         RouterModule.forChild(routes),
+        TranslateModule,
         MatButtonModule,
         MatCheckboxModule,
         MatFormFieldModule,
