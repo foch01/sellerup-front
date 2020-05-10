@@ -20,9 +20,11 @@
   <!---------------------------->
   <div id=corpspage>
       <div [formGroup]="form"> 
-        <select [id]="key">
+        <select [id]="key" (click)="updateSelect($event)">
           <option *ngFor="let work of workflows" [value]="work.key">{{work.value}}</option> 
         </select>
+
+
       </div>
 
       <div *ngIf="key === 1">Demo</div>
