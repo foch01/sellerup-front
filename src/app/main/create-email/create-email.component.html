@@ -25,11 +25,17 @@
         </select>
 
         <div *ngIf="key === 1">
-          <select> 
-            <option>Statut commande</option>
-            <option>En attene attente de disponibilité (précommande uniqement)</option>
-            <option>En attente</option>
-          </select>
+          <div>
+            <ckeditor [editor]="Editor" (change)="onChange($event)" 
+           data=""></ckeditor>
+          </div>
+          <div>
+            <select> 
+              <option>Statut commande</option>
+              <option>En attene attente de disponibilité (précommande uniqement)</option>
+              <option>En attente</option>
+            </select>
+          </div>
         </div>
       </div>
 
