@@ -10,6 +10,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 
 export class CreateEmailComponent implements OnInit {
+  key = 1;
 
   public Editor = ClassicEditor;
   public dataCkeEditor: any;
@@ -20,9 +21,9 @@ export class CreateEmailComponent implements OnInit {
     console.log(this.dataCkeEditor);
   }
 
-  constructor(
-    private _formBuilder: FormBuilder,
-  ) { }
+  constructor(private _formBuilder: FormBuilder) { 
+    this.key = 1;
+  }
 
   ngOnInit() {
   }

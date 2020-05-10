@@ -19,6 +19,12 @@
   </div> 
   <!---------------------------->
   <div id=corpspage>
+      <div [formGroup]="form"> 
+        <select [id]="workflow.key" *ngSwitchCase="'dropdown'" [formControlName]="workflow.key"> -->
+
+        </select> -->
+      </div>
+
       <div>
           <form id="activer">
             <INPUT type="checkbox" name="activer" value="Activer">
