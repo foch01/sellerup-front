@@ -10,6 +10,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 
 export class CreateEmailComponent implements OnInit {
+  demo = true;
   key = 1;
   workflows = [];
 
@@ -22,7 +23,8 @@ export class CreateEmailComponent implements OnInit {
     console.log(this.dataCkeEditor);
   }
 
-  constructor(private _formBuilder: FormBuilder) { 
+  constructor(private _formBuilder: FormBuilder) {
+    this.demo = false; 
     this.key = 1;
     this.workflows = [
       {
