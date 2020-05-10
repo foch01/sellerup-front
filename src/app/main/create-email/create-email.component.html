@@ -20,11 +20,17 @@
   <!---------------------------->
   <div id=corpspage>
       <div [formGroup]="form"> 
-        <select [id]="key" (click)="updateSelect($event)">
+        <select [id]="key" (change)="updateSelect($event)">
           <option *ngFor="let work of workflows" [value]="work.key">{{work.value}}</option> 
         </select>
 
-        <div *ngIf="key === 1">Demo</div>
+        <div *ngIf="key === 1">
+          <select> 
+            <option>Statut commande</option>
+            <option>En attene attente de disponibilité (précommande uniqement)</option>
+            <option>En attente</option>
+          </select>
+        </div>
       </div>
 
       
