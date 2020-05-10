@@ -24,10 +24,10 @@
           <option *ngFor="let work of workflows" [value]="work.key">{{work.value}}</option> 
         </select>
 
-
+        <div *ngIf="key === 1">Demo</div>
       </div>
 
-      <div *ngIf="key === 1">Demo</div>
+      
 
       <div>
           <form id="activer">
