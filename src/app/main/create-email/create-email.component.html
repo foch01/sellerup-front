@@ -20,7 +20,8 @@
   <!---------------------------->
   <div id=corpspage>
       <div [formGroup]="form"> 
-        <select [id]="key"> 
+        <select [id]="key">
+          <option *ngFor="let work of workflows" [value]="work.key">{{work.value}}</option> 
         </select>
       </div>
 
