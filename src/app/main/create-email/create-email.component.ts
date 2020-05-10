@@ -40,7 +40,8 @@ export class CreateEmailComponent implements OnInit {
 
   updateSelect(event) {
     this.key = event.target.value;
-    console.log(this.key);
+    console.log(this.key == 1);
+    console.log(typeof(this.key));
   }
 
   ngOnInit() {

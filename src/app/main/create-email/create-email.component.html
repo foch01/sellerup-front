@@ -24,7 +24,7 @@
           <option *ngFor="let work of workflows" [value]="work.key">{{work.value}}</option> 
         </select>
 
-        <div *ngIf="key === 1">
+        <div *ngIf="key == 1">
           <div>
             <ckeditor [editor]="Editor" (change)="onChange($event)" 
            data=""></ckeditor>
