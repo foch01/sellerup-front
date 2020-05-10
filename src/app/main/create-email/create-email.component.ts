@@ -11,6 +11,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
 export class CreateEmailComponent implements OnInit {
   key = 1;
+  workflows = [];
 
   public Editor = ClassicEditor;
   public dataCkeEditor: any;
@@ -23,6 +24,16 @@ export class CreateEmailComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder) { 
     this.key = 1;
+    this.workflows = [
+      {
+        key: 1,
+        value: "Gestion des commandes"
+      },
+      { 
+        key: 2,
+        value: "Gestion du marketing"
+      }
+    ]
   }
 
   ngOnInit() {
