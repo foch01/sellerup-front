@@ -26,6 +26,7 @@ import { RegisterService } from './core/services/register.service';
 import { ForgotPasswordModule } from './main/authentication/forgot-password/forgot-password.module';
 import { ProductsModule } from './main/products/products.module';
 import { SharedModule } from './shared/shared.module';
+import { CreateEmailModule } from './main/create-email/create-email.module';
 
 const appRoutes: Routes = [
     {
@@ -71,6 +72,7 @@ const appRoutes: Routes = [
         LayoutModule,
         SampleModule,
         ProductsModule,
+        CreateEmailModule,
     ],
     bootstrap: [AppComponent],
     providers: [AuthService, RegisterService],
