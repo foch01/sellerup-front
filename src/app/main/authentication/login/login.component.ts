@@ -1,14 +1,17 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { fuseAnimations } from '../../../../@fuse/animations';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { isNullOrUndefined } from 'util';
+import { fuseAnimations } from '../../../../@fuse/animations';
 import { FuseConfigService } from '../../../../@fuse/services/config.service';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
     animations: fuseAnimations,
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
 })
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
@@ -18,57 +21,51 @@ export class LoginComponent implements OnInit {
      *
      * @param {FuseConfigService} _fuseConfigService
      * @param {FormBuilder} _formBuilder
+     * @param authService
+     * @param router
      */
     constructor(
         private _fuseConfigService: FuseConfigService,
-        private _formBuilder: FormBuilder
+        private _formBuilder: FormBuilder,
+        private authService: AuthService,
+        private router: Router,
     ) {
         // Configure the layout
         this._fuseConfigService.config = {
             layout: {
                 navbar: {
-                    hidden: true
+                    hidden: true,
                 },
                 toolbar: {
-                    hidden: true
+                    hidden: true,
                 },
                 footer: {
-                    hidden: true
+                    hidden: true,
                 },
                 sidepanel: {
-                    hidden: true
-                }
-            }
+                    hidden: true,
+                },
+            },
         };
     }
-
-    // -----------------------------------------------------------------------------------------------------
-    // @ Lifecycle hooks
-    // -----------------------------------------------------------------------------------------------------
 
     /**
      * On init
      */
     ngOnInit(): void {
         this.loginForm = this._formBuilder.group({
-            email: ['',
-                [
-                    Validators.required,
-                    Validators.email
-                ]
-            ]
-            ,
-            password: ['',
-                Validators.required
-            ]
+            email: ['', [Validators.required, Validators.email]],
+            password: ['', Validators.required],
         });
     }
 
     onSubmit() {
-        console.log('submit du form');
-        if (this.loginForm.valid) {
-            console.log('call api');
-        }
+        this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(token => {
+            if (!isNullOrUndefined(token)) {
+                this.authService.addToLocalStorage(token);
+                this.router.navigate(['/products']);
+                this.authService.getCurrentUSer();
+            }
+        });
     }
-
 }

@@ -5,27 +5,30 @@
 </div>-->
 
 <div id="products" class="page-layout carded fullwidth inner-scroll">
-
     <!-- TOP BACKGROUND -->
     <div class="top-bg accent"></div>
     <!-- / TOP BACKGROUND -->
 
     <!-- CENTER -->
     <div class="center">
-
         <!-- HEADER -->
-        <div class="header accent"
-             fxLayout="column" fxLayoutAlign="center center"
-             fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="space-between center">
-
+        <div
+            class="header accent"
+            fxLayout="column"
+            fxLayoutAlign="center center"
+            fxLayout.gt-sm="row"
+            fxLayoutAlign.gt-sm="space-between center"
+        >
             <!-- APP TITLE -->
-            <div class="logo mb-24 mb-md-0"
-                 fxLayout="row" fxLayoutAlign="start center">
-                <mat-icon class="logo-icon s-32 mr-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+            <div class="logo mb-24 mb-md-0" fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon
+                    class="logo-icon s-32 mr-16"
+                    [@animate]="{ value: '*', params: { delay: '50ms', scale: '0.2' } }"
+                >
                     shopping_basket
                 </mat-icon>
-                <span class="logo-text h1" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
-                    {{'PRODUCTS.TITLE' | translate}}
+                <span class="logo-text h1" [@animate]="{ value: '*', params: { delay: '100ms', x: '-25px' } }">
+                    {{ 'PRODUCTS.TITLE' | translate }}
                 </span>
             </div>
             <!-- / APP TITLE -->
@@ -33,42 +36,47 @@
             <div class="search-wrapper mx-32 mx-md-0">
                 <div class="search" fxFlex fxLayout="row" fxLayoutAlign="start center">
                     <mat-icon>search</mat-icon>
-                    <input #filter placeholder="{{'PRODUCTS.TEXT_AREA' | translate}}">
+                    <input #filter placeholder="{{ 'PRODUCTS.TEXT_AREA' | translate }}" />
                 </div>
             </div>
             <!-- / SEARCH -->
             <!-- ADD BUTTON -->
-            <button mat-raised-button
-                    class="add-product-button fuse-white mt-24 mt-md-0">
+            <button mat-raised-button class="add-product-button fuse-white mt-24 mt-md-0">
                 <span>Synchroniser</span>
             </button>
             <!-- / ADD BUTTON -->
         </div>
         <!-- CONTENT CARD -->
         <div class="content-card">
-
-            <mat-table class="products-table"
-                       #table [dataSource]="dataTable"
-                       matSort
-                       [@animateStagger]="{value:'50'}"
-                       fusePerfectScrollbar>
-
+            <mat-table
+                class="products-table"
+                #table
+                [dataSource]="dataTable"
+                matSort
+                [@animateStagger]="{ value: '50' }"
+                fusePerfectScrollbar
+            >
                 <!-- ID Column -->
                 <ng-container matColumnDef="asin">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>ASIN</mat-header-cell>
                     <mat-cell *matCellDef="let product">
-                        <p class="text-truncate">{{product.ASIN}}</p>
+                        <p class="text-truncate">{{ product.ASIN }}</p>
                     </mat-cell>
                 </ng-container>
                 <!-- Image Column -->
                 <ng-container matColumnDef="image">
                     <mat-header-cell *matHeaderCellDef>Image</mat-header-cell>
                     <mat-cell *matCellDef="let product">
-                        <img class="product-image"
-                             *ngIf="product.featuredImageId" [alt]="product.name"
-                             [src]="product.images[product.featuredImageId].url"/>
-                        <img *ngIf="!product.featuredImageId"
-                             [src]="'assets/images/ecommerce/product-image-placeholder.png'">
+                        <img
+                            class="product-image"
+                            *ngIf="product.featuredImageId"
+                            [alt]="product.name"
+                            [src]="product.images[product.featuredImageId].url"
+                        />
+                        <img
+                            *ngIf="!product.featuredImageId"
+                            [src]="'assets/images/ecommerce/product-image-placeholder.png'"
+                        />
                     </mat-cell>
                 </ng-container>
 
@@ -76,7 +84,7 @@
                 <ng-container matColumnDef="name">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Produit</mat-header-cell>
                     <mat-cell *matCellDef="let product">
-                        <p class="text-truncate">{{product.name}}</p>
+                        <p class="text-truncate">{{ product.name }}</p>
                     </mat-cell>
                 </ng-container>
 
@@ -84,14 +92,18 @@
                 <ng-container matColumnDef="stock">
                     <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>Stock</mat-header-cell>
                     <mat-cell *matCellDef="let product" fxHide fxShow.gt-sm>
-
-                        <span class="quantity-indicator text-truncate"
-                              [ngClass]="{'red-500':product.stock <= 5, 'amber-500':product.stock > 5 && product.stock <= 25,'green-600':product.stock > 25}">
+                        <span
+                            class="quantity-indicator text-truncate"
+                            [ngClass]="{
+                                'red-500': product.stock <= 5,
+                                'amber-500': product.stock > 5 && product.stock <= 25,
+                                'green-600': product.stock > 25
+                            }"
+                        >
                         </span>
                         <span>
-                            {{product.stock}}
+                            {{ product.stock }}
                         </span>
-
                     </mat-cell>
                 </ng-container>
 
@@ -99,26 +111,23 @@
                     <mat-header-cell *matHeaderCellDef mat-sort-header fxHide fxShow.gt-sm>Ventes</mat-header-cell>
                     <mat-cell *matCellDef="let product" fxHide fxShow.gt-sm>
                         <p class="price text-truncate">
-                            {{product.sales}}
+                            {{ product.sales }}
                         </p>
                     </mat-cell>
                 </ng-container>
 
-                <mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></mat-header-row>
+                <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
 
-                <mat-row *matRowDef="let product; columns: displayedColumns;"
-                         class="product"
-                         matRipple
-                         [routerLink]="'/products/'+product.id+'/'+product.handle">
+                <mat-row
+                    *matRowDef="let product; columns: displayedColumns"
+                    class="product"
+                    matRipple
+                    [routerLink]="'/products/' + product.id + '/' + product.handle"
+                >
                 </mat-row>
-
             </mat-table>
-            <mat-paginator #paginator
-                           [pageIndex]="0"
-                           [pageSize]="10"
-                           [pageSizeOptions]="[5, 10, 25, 100]">
+            <mat-paginator #paginator [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
             </mat-paginator>
-
         </div>
         <!-- / CONTENT CARD -->
     </div>

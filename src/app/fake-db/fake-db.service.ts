@@ -3,11 +3,11 @@ import { ProductAnalyticsDb } from './product-analytics';
 import { ProductEmailDb } from './product-email';
 
 export class FakeDbService implements InMemoryDbService {
-        createDb(): any {
-            return {
-                // Products
-                'analytics-product': ProductAnalyticsDb.widgets,
-                'email-product': ProductEmailDb.emails
-            };
-        }
+    createDb(): any {
+        return {
+            // Products
+            'analytics-product': ProductAnalyticsDb.widgets,
+            'email-product': ProductEmailDb.emails,
+        };
+    }
 }

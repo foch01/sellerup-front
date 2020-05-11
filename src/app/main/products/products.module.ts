@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { FuseSharedModule } from '@fuse/shared.module';
+import { FuseSharedModule } from '@fuse/fuse-shared.module';
+import { AuthGuard } from '../../core/guards/auth.guard';
+import { SharedModule } from '../../shared/shared.module';
 
 import { ProductsComponent } from './products.component';
 import {
@@ -18,7 +20,7 @@ import {
     MatSortModule,
     MatSnackBarModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
 } from '@angular/material';
 import { ProductComponent } from './product/product.component';
 import { ProductService } from './product/product.service';
@@ -26,29 +28,28 @@ import { ChartsModule } from 'ng2-charts';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FuseWidgetModule } from '../../../@fuse/components';
 
-const routes = [
+const routes: Routes = [
     {
-        path     : 'products',
-        component: ProductsComponent
+        path: 'products',
+        component: ProductsComponent,
+        canActivate: [AuthGuard],
     },
     {
-        path     : 'products/:id/:handle',
+        path: 'products/:id/:handle',
         component: ProductComponent,
-        resolve  : {
-            data: ProductService
-        }
+        resolve: {
+            data: ProductService,
+        },
     },
 ];
 
 @NgModule({
-    declarations: [
-        ProductsComponent,
-        ProductComponent
-    ],
-    imports     : [
+    declarations: [ProductsComponent, ProductComponent],
+    imports: [
         RouterModule.forChild(routes),
 
         TranslateModule,
+        SharedModule,
         FuseSharedModule,
         MatButtonModule,
         MatChipsModule,
@@ -70,14 +71,7 @@ const routes = [
         FuseSharedModule,
         FuseWidgetModule,
     ],
-    providers   : [
-        ProductService
-    ],
-    exports     : [
-        ProductsComponent
-    ]
+    providers: [ProductService],
+    exports: [ProductsComponent],
 })
-
-export class ProductsModule
-{
-}
+export class ProductsModule {}

@@ -3,28 +3,28 @@ import { CommonModule } from '@angular/common';
 import { ForgotPasswordComponent } from './forgot-password.component';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
-import { FuseSharedModule } from '../../../../@fuse/shared.module';
+import { FuseSharedModule } from '../../../../@fuse/fuse-shared.module';
 
 const routes = [
     {
-        path     : 'forgot-password',
-        component: ForgotPasswordComponent
-    }
+        path: 'forgot-password',
+        component: ForgotPasswordComponent,
+    },
 ];
 
 @NgModule({
-  declarations: [ForgotPasswordComponent],
-  imports: [
-    CommonModule,
+    declarations: [ForgotPasswordComponent],
+    imports: [
+        CommonModule,
 
-      RouterModule.forChild(routes),
+        RouterModule.forChild(routes),
 
-      MatButtonModule,
-      MatFormFieldModule,
-      MatIconModule,
-      MatInputModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
 
-      FuseSharedModule,
-  ]
+        FuseSharedModule,
+    ],
 })
-export class ForgotPasswordModule { }
+export class ForgotPasswordModule {}

@@ -1,16 +1,13 @@
 @mixin products-theme($theme) {
-
     $background: map-get($theme, background);
     $foreground: map-get($theme, foreground);
 
     app-products {
-
         .header {
             .search-wrapper {
                 background: map-get($background, card);
 
                 .search {
-
                     .mat-icon {
                         color: map-get($foreground, icon);
                     }

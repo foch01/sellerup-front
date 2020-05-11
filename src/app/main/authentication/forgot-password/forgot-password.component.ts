@@ -6,14 +6,10 @@ import { fuseAnimations } from '../../../../@fuse/animations';
     templateUrl: './forgot-password.component.html',
     styleUrls: ['./forgot-password.component.scss'],
     animations: fuseAnimations,
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
 })
 export class ForgotPasswordComponent implements OnInit {
+    constructor() {}
 
-    constructor() {
-    }
-
-    ngOnInit() {
-    }
-
+    ngOnInit() {}
 }

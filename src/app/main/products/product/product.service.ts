@@ -4,8 +4,7 @@ import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/r
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class ProductService implements Resolve<any>
-{
+export class ProductService implements Resolve<any> {
     widgets: any[];
     emails: any[];
 
@@ -14,11 +13,7 @@ export class ProductService implements Resolve<any>
      *
      * @param {HttpClient} _httpClient
      */
-    constructor(
-        private _httpClient: HttpClient
-    )
-    {
-    }
+    constructor(private _httpClient: HttpClient) {}
 
     /**
      * Resolver
@@ -27,19 +22,11 @@ export class ProductService implements Resolve<any>
      * @param {RouterStateSnapshot} state
      * @returns {Observable<any> | Promise<any> | any}
      */
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any
-    {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
         return new Promise((resolve, reject) => {
-
-            Promise.all([
-                this.getWidgets(),
-                this.getEmails()
-            ]).then(
-                () => {
-                    resolve();
-                },
-                reject
-            );
+            Promise.all([this.getWidgets(), this.getEmails()]).then(() => {
+                resolve();
+            }, reject);
         });
     }
 
@@ -48,14 +35,12 @@ export class ProductService implements Resolve<any>
      *
      * @returns {Promise<any>}
      */
-    getWidgets(): Promise<any>
-    {
+    getWidgets(): Promise<any> {
         return new Promise((resolve, reject) => {
-            this._httpClient.get('api/analytics-product')
-                .subscribe((response: any) => {
-                    this.widgets = response;
-                    resolve(response);
-                }, reject);
+            this._httpClient.get('api/analytics-product').subscribe((response: any) => {
+                this.widgets = response;
+                resolve(response);
+            }, reject);
         });
     }
 
@@ -64,14 +49,12 @@ export class ProductService implements Resolve<any>
      *
      * @returns {Promise<any>}
      */
-    getEmails(): Promise<any>
-    {
+    getEmails(): Promise<any> {
         return new Promise((resolve, reject) => {
-            this._httpClient.get('api/email-product')
-                .subscribe((response: any) => {
-                    this.emails = response;
-                    resolve(response);
-                }, reject);
+            this._httpClient.get('api/email-product').subscribe((response: any) => {
+                this.emails = response;
+                resolve(response);
+            }, reject);
         });
     }
 }
