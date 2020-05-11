@@ -1,7 +1,5 @@
  
-  <!--CORPS DU TEXTE-->
-
-<div id="createemail" class="page-layout carded fullwidth inner-scroll">
+<div id="forms" class="page-layout simple fullwidth" fxLayout="column">
 
   <!-- TOP BACKGROUND -->
   <div class="top-bg accent"></div>
@@ -18,7 +16,7 @@
     </div>
   </div> 
   <!---------------------------->
-  <div id=corpspage>
+  <div class="content">
       <div [formGroup]="form"> 
         <select [id]="key" (change)="updateSelect($event)">
           <option *ngFor="let work of workflows" [value]="work.key">{{work.value}}</option> 
