@@ -45,6 +45,14 @@ export const navigation: FuseNavigation[] = [
                 icon: 'lock',
                 url: '/forgot-password',
             },
+            {
+                id: 'create-email',
+                title: 'Create Email',
+                translate: 'NAV.CREATE-EMAIL.TITLE',
+                type: 'item',
+                icon: 'email',
+                url: '/create-email',
+            },
         ],
     },
 ];
