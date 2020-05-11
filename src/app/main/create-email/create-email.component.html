@@ -21,6 +21,24 @@
           <option *ngFor="let work of workflows" [value]="work.key">{{work.value}}</option> 
         </select>
 
+        <div>
+          <mat-form-field appearance="outline" fxFlex="100">
+              <mat-label>Événement declencheur</mat-label>
+              <mat-select formControlName="country" required>
+                  <mat-option [value]="'1'">
+                      Statut commande
+                  </mat-option>
+                  <mat-option [value]="'2'">
+                    En attene attente de disponibilité (précommande uniqement)
+                  </mat-option>
+                  <mat-option [value]="'2'">
+                    En attente
+                  </mat-option>
+                </mat-select>
+              <mat-error>Country is required!</mat-error>
+          </mat-form-field>
+        </div>
+
         <div *ngIf="key == 1">
           <div>
             <ckeditor [editor]="Editor" (change)="onChange($event)" 
