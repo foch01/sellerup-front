@@ -24,7 +24,6 @@ export class CreateEmailComponent implements OnInit {
   }
 
   constructor(private _formBuilder: FormBuilder) {
-    this.demo = false; 
     this.key = 1;
     this.workflows = [
       {
