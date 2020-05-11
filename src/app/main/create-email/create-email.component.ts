@@ -43,66 +43,6 @@ export class CreateEmailComponent implements OnInit {
 
   ngOnInit() {
   }
-  
-  public formGroup: FormGroup = this._formBuilder.group({
-
-    title: new FormControl(null, {
-        validators: [
-            Validators.required,
-        ],
-        updateOn: 'change',
-    }),
-
-    subject: new FormControl(null, {
-      validators: [
-          Validators.required,
-      ],
-      updateOn: 'change',
-    }),
-
-    deroul1: new FormControl(null, {
-      validators: [
-          Validators.required,
-      ],
-      updateOn: 'change',
-    }),
-
-    deroul2: new FormControl(null, {
-      validators: [
-          Validators.required,
-      ],
-      updateOn: 'change',
-    }),
-    
-    deroul3: new FormControl(null, {
-      validators: [
-          Validators.required,
-      ],
-      updateOn: 'change',
-    }),
-
-    deroul4: new FormControl(null, {
-      validators: [
-          Validators.required,
-      ],
-      updateOn: 'change',
-    }),
-
-    deroul5: new FormControl(null, {
-      validators: [
-          Validators.required,
-      ],
-      updateOn: 'change',
-    }),
-    
-    deroul6: new FormControl(null, {
-      validators: [
-          Validators.required,
-      ],
-      updateOn: 'change',
-    }),
-    
-  });
 }
 
 ​
