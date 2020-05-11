@@ -15,7 +15,7 @@
     </div>
   </div> 
   <!---------------------------->
-  <div class="content">
+  <div class="content p-24">
       <div [formGroup]="form"> 
         <select [id]="key" (change)="updateSelect($event)">
           <option *ngFor="let work of workflows" [value]="work.key">{{work.value}}</option> 
