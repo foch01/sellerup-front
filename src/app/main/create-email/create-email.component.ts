@@ -103,21 +103,6 @@ export class CreateEmailComponent implements OnInit {
     }),
     
   });
-
-  public async handleOnSubmit() {
-    const payload = {
-              title: this.formGroup.value.title,
-              subject: this.formGroup.value.subject,
-              content: this.dataCkeEditor,
-              deroul1: this.formGroup.value.deroul1,
-              deroul2: this.formGroup.value.deroul2,
-              deroul3: this.formGroup.value.deroul3,
-              deroul4: this.formGroup.value.deroul4,
-              deroul5: this.formGroup.value.deroul5,
-              deroul6: this.formGroup.value.deroul6,
-          };
-    console.log(payload);
-  }
 }
 
 ​
