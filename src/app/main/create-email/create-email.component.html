@@ -1,0 +1,104 @@
+ 
+<div id="forms" class="page-layout simple fullwidth" fxLayout="column">
+
+  <!-- TOP BACKGROUND -->
+  <div class="top-bg accent"></div>
+  <!-- / TOP BACKGROUND -->
+
+
+  <!--Bandeau Bleu-->
+  <div class="header accent" style="margin-bottom: 120px;"
+             fxLayout="column" fxLayoutAlign="center center"
+             fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="space-between center">
+    <div class="email">
+      <h1 class=titreemail>Template email</h1>
+    </div>
+  </div> 
+  <!---------------------------->
+  <div class="content p-24">
+      <div [formGroup]="form"> 
+        <div class="pb-4">
+          <select [id]="key" (change)="updateSelect($event)">
+            <option *ngFor="let work of workflows" [value]="work.key">{{work.value}}</option> 
+          </select>
+        </div>
+
+        <div *ngIf="key == 1">
+          <div>
+            <ckeditor [editor]="Editor" (change)="onChange($event)" 
+           data=""></ckeditor>
+          </div>
+          <div>
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Événement declencheur</mat-label>
+                <mat-select formControlName="country" required>
+                    <mat-option [value]="'1'">
+                        Statut commande
+                    </mat-option>
+                    <mat-option [value]="'2'">
+                      En attene attente de disponibilité (précommande uniqement)
+                    </mat-option>
+                    <mat-option [value]="'2'">
+                      En attente
+                    </mat-option>
+                  </mat-select>
+                <mat-error>Country is required!</mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="outline" fxFlex="100">
+              <mat-label>Durée d'envoi aprés le lancement du déclencheur</mat-label>
+              <input matInput formControlName="firstName" required>
+              <mat-error>First Name is required!</mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-checkbox>Joindre une facture générée</mat-checkbox>
+          </div>
+          <div>
+            <label for="facture">Importer un facture</label>
+
+            <input type="file" id="facture">
+          </div>
+          <div>
+            <mat-form-field appearance="outline" fxFlex="100">
+              <mat-label>Sélection des produits (via ASIN)</mat-label>
+              <input matInput formControlName="firstName" required>
+              <mat-error>First Name is required!</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div *ngIf="key == 2">
+          <div>
+            <ckeditor [editor]="Editor" (change)="onChange($event)" 
+           data=""></ckeditor>
+          </div>
+          <div>
+            <mat-form-field appearance="outline" fxFlex="100">
+              <mat-label>Date d'envoi</mat-label>
+              <input matInput formControlName="firstName" required>
+              <mat-error>First Name is required!</mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Sélection des clients</mat-label>
+                <mat-select formControlName="country" required>
+                    <mat-option [value]="'1'">
+                        John Doe
+                    </mat-option>
+                    <mat-option [value]="'2'">
+                      Jane Doe
+                    </mat-option>
+                  </mat-select>
+                <mat-error>Country is required!</mat-error>
+            </mat-form-field>
+          </div>    
+        </div>
+        <button mat-raised-button type="button" color="accent">
+          Valider
+        </button>
+      </div>
+  </div>
+</div>
